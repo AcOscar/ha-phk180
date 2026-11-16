@@ -1,0 +1,22 @@
+# =============================================================================
+# PHK 180 LOCAL WEB CONTROL (UNOFFICIAL COMMUNITY PROJECT)
+# HAFTUNGSAUSSCHLUSS / DISCLAIMER:
+# Unabhängiges, inoffizielles Open-Source-Community-Projekt (MIT-Lizenz).
+# Es besteht keinerlei Verbindung, Zugehörigkeit oder offizielle Unterstützung
+# durch den Hersteller der Anlage (AEREX HaustechnikSysteme GmbH / MAICO-Gruppe).
+# =============================================================================
+set_vacation_return_date:
+  name: Ferien-Rückkehrdatum setzen
+  description: Überträgt das Rückkehrdatum für den Ferienbetrieb im Format TT-MM-JJJJ an Parameter D[1] der PHK 180 Anlage.
+  fields:
+    return_date:
+      name: Rückkehrdatum
+      description: Datum im Format YYYY-MM-DD (z. B. 2026-12-26)
+      required: true
+      example: "2026-12-26"
+      selector:
+        date:
+
+sync_system_date:
+  name: Systemdatum synchronisieren
+  description: Synchronisiert das aktuelle Systemdatum von Home Assistant mit dem Parameter D[0] der PHK 180 Anlage.

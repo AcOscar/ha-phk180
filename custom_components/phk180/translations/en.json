@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect PHK 180 Web Interface (Unofficial Integration)",
+        "description": "Connects Home Assistant locally to a PHK 180 unit. Note: Independent open-source community project not affiliated with the manufacturer.",
+        "data": {
+          "host": "Host / IP Address",
+          "username": "Username (default: admin)",
+          "password": "Password (optional)",
+          "scan_interval": "Scan Interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the PHK 180 unit."
+    },
+    "abort": {
+      "already_configured": "Device is already configured."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "domain": "phk180",
+  "name": "PHK 180 Local Web Control (Unofficial)",
+  "codeowners": [
+    "@AcOscar"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/AcOscar/ha-phk180",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/AcOscar/ha-phk180/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

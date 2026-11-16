@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "PHK 180 Web-Interface verbinden (Inoffizielle Integration)",
+        "description": "Verbindet Home Assistant lokal mit dem Webinterface einer PHK 180 Anlage. Hinweis: Unabhängiges Open-Source-Community-Projekt ohne Verbindung zum Hersteller.",
+        "data": {
+          "host": "Host / IP-Adresse der Anlage",
+          "username": "Benutzername (Standard: admin)",
+          "password": "Passwort (optional, falls in der Weboberfläche vergeben)",
+          "scan_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zur PHK 180 Anlage fehlgeschlagen. Bitte IP-Adresse und Anmeldedaten prüfen."
+    },
+    "abort": {
+      "already_configured": "Dieses Gerät ist bereits konfiguriert."
+    }
+  }
+}
