@@ -15,7 +15,7 @@ Diese Integration ermöglicht die lokale Einbindung einer **PHK 180** Lüftungs-
 - **100 % Lokal (Local Polling):** Direkte Kommunikation im Heimnetzwerk ohne Cloud-Abhängigkeit.
 - **Nur Endkunden-Ebene:** Die Integration greift ausschließlich auf Einstellungen und Abfragewerte zu, die auf der regulären Endkunden-Weboberfläche vorgesehen sind. Passwortgeschützte Installateur- oder Service-Ebenen werden weder abgefragt noch freigeschaltet.
 - **Closed-Loop Sollwertregelung mit technischer Grenzwertprüfung:** Alle einstellbaren Temperatur-, Hysterese- und Lüftungsparameter sind auf ihre technisch zulässigen Betriebsgrenzen begrenzt, sodass unzulässige Sollwerte gar nicht erst an das Gerät gesendet werden.
-- **Direktsteuerung:** Betriebsart (`P[522][0]`), Lüftungsstufe (`P[225][0]`), Stoßlüftung (`S[229][0]`), Jahreszeit (`S[523][0]`), Legionellenschutz (`S[958][0]`), Vorrangschaltung (`S[272][0]`) sowie Ferienbetrieb (`D[1]`).
+- **Direktsteuerung:** Betriebsart, Lüftungsstufe, Stoßlüftung, Jahreszeit, Legionellenschutz, Vorrangschaltung sowie Ferienbetrieb.
 - **Über 50 Entitäten:** Alle Temperaturen, Lüfterdrehzahlen, Volumenströme, CO2-Werte, Schaltzustände und alle 14 Betriebsstundenzähler.
 
 ---
