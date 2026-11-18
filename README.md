@@ -1,5 +1,5 @@
 # PHK 180 Local Web Control (Unofficial Home Assistant Integration)
-
+[![HACS Badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
 > **RECHTLICHER HINWEIS / DISCLAIMER (KEIN HERSTELLERPROJEKT):**
 > Dies ist ein **unabhängiges, privates und inoffizielles Open-Source-Community-Projekt** (`phk180`) unter der **MIT-Lizenz**.
 > Dieses Projekt steht in **keinerlei wirtschaftlicher, organisatorischer oder rechtlicher Verbindung** zur *AEREX HaustechnikSysteme GmbH* oder der *MAICO-Gruppe* und wird von diesen weder autorisiert, geprüft, gesponsert noch unterstützt.
