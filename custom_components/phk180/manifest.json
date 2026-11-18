@@ -1,6 +1,10 @@
 {
   "domain": "phk180",
   "name": "PHK 180 Local Web Control (Unofficial)",
+  "categories": [
+    "climate.heat_pumps_air_conditioning",
+    "climate.water_heaters"
+  ],
   "codeowners": [
     "@AcOscar"
   ],
@@ -9,9 +13,5 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/AcOscar/ha-phk180/issues",
   "requirements": [],
-   "categories": [
-    "climate.heat_pumps_air_conditioning",
-    "climate.water_heaters"
-  ],
   "version": "1.0.0"
 }
