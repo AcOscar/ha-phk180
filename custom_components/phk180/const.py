@@ -12,7 +12,7 @@ Die Nutzung erfolgt vollständig auf eigene Gefahr.
 """
 
 DOMAIN = "phk180"
-DEFAULT_HOST = "192.168.178.47"
+DEFAULT_HOST = "aerexphk180"
 DEFAULT_USERNAME = "admin"
 DEFAULT_PASSWORD = ""
 DEFAULT_SCAN_INTERVAL = 15
