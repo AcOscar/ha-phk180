@@ -1,25 +1,17 @@
 # =============================================================================
-# UNOFFICIAL COMMUNITY INTEGRATION / DASHBOARD (PHK 180)
+# PHK 180 LOCAL WEB CONTROL (UNOFFICIAL COMMUNITY PROJECT)
 # HAFTUNGSAUSSCHLUSS / DISCLAIMER:
-# Dies ist ein unabhängiges, inoffizielles Open-Source-Community-Projekt.
+# Unabhängiges, inoffizielles Open-Source-Community-Projekt (MIT-Lizenz).
 # Es besteht keinerlei Verbindung, Zugehörigkeit oder offizielle Unterstützung
 # durch den Hersteller der Anlage (AEREX HaustechnikSysteme GmbH / MAICO-Gruppe).
 # =============================================================================
-# =============================================================================
-# PHK 180 - Lovelace Dashboard Konfiguration (Version v3)
-# Inklusive:
-#   - Betriebsarten (Anzeige + Direktwahl)
-#   - Ferienabwesenheit (Kalender-Auswahl, Senden-Button, Absenktemperatur-Regler)
-#   - Umschaltventil Stellung ("Luft" / "Wasser")
-#   - Vollständige Betriebsstunden-Übersicht
-# =============================================================================
-title: PHK 180 (Anlage)
+title: PHK 180
 views:
   # ---------------------------------------------------------------------------
-  # TAB 1: Hauptsteuerung & Überwachung
+  # TAB 1: Übersicht (Gliederung in Steuerung, Sensoren & Schaltzustände)
   # ---------------------------------------------------------------------------
-  - title: Steuerung & Daten
-    path: steuerung
+  - title: Übersicht
+    path: uebersicht
     icon: mdi:hvac
     badges:
       - entity: sensor.phk180_betriebsart
@@ -27,14 +19,13 @@ views:
       - entity: sensor.phk180_volumenstrom
       - entity: sensor.phk180_storungsmeldung
     cards:
+      # === BEREICH 1: STEUERUNG ===
       - type: vertical-stack
         cards:
           - type: entities
-            title: Betriebsart & Direktsteuerung
+            title: Steuerung – Betriebsart & Lüftung
             show_header_toggle: false
             entities:
-              - entity: sensor.phk180_betriebsart
-                name: Aktuelle Betriebsart (Anzeige Gerät)
               - entity: select.phk180_betriebsart_auswahl
                 name: Betriebsart wählen
               - entity: select.phk180_luftungsstufe_auswahl
@@ -43,84 +34,69 @@ views:
                 name: Stoßlüftung aktivieren
               - entity: switch.phk180_sommerbetrieb_jahreszeit
                 name: Jahreszeit Sommerbetrieb
-              - entity: sensor.phk180_storungsmeldung
-                name: Aktuelle Störungsmeldung
+              - entity: button.phk180_wp_vorrangschaltung_umschalten
+                name: Vorrangschaltung WP umschalten
+              - entity: switch.phk180_legionellenschutz
+                name: Legionellenschutz
               - entity: button.phk180_storung_reset
                 name: Störung quittieren (Reset)
 
           - type: entities
-            title: Ferienbetrieb / Urlaubsabwesenheit
+            title: Steuerung – Ferienabwesenheit
             show_header_toggle: false
             entities:
-              - entity: sensor.phk180_ferien_ruckkehrdatum_gerat
-                name: Aktives Rückkehrdatum im Gerät
-              - entity: input_datetime.phk180_ferien_rueckkehrdatum
-                name: Neues Rückkehrdatum wählen
-              - entity: button.phk180_ferien_ruckkehrdatum_ubertragen
-                name: Rückkehrdatum an PHK 180 senden
-              - entity: number.phk180_sollwert_absenktemperatur_ferien
-                name: Absenktemperatur Ferien
-              - entity: button.phk180_ferienbetrieb_beenden_auf_auto_zeit
-                name: Ferienbetrieb beenden (zurück auf Auto Zeit)
+              - entity: date.phk180_ferien_ruckreisedatum
+                name: Ferien Rückreisedatum einstellen
+              - entity: number.phk180_absenktemperatur_ferien
+                name: Absenktemperatur Ferien (18–20 °C)
+              - entity: button.phk180_ferienbetrieb_beenden
+                name: Ferienbetrieb beenden (Auto Zeit)
 
           - type: entities
-            title: Sollwerte & Parameter (Systemgrenzen)
+            title: Steuerung – Sollwerte & Parameter
             show_header_toggle: false
             entities:
-              - entity: number.phk180_sollwert_raumtemperatur
+              - entity: number.phk180_raumsolltemperatur
                 name: Raumsolltemperatur (18,0–25,0 °C)
-              - entity: number.phk180_sollwert_abgleich_raumtemperatur
+              - entity: number.phk180_abgleich_raumtemperatur
                 name: Abgleich Raumtemperatur (-3,0 bis +3,0 K)
-              - entity: number.phk180_sollwert_einschaltpunkt_zh_zuluft
+              - entity: number.phk180_einschaltpunkt_zh_zuluft
                 name: Einschaltpunkt ZH Zuluft (-2,0 bis -0,4 K)
-              - entity: number.phk180_sollwert_warmwasser
+              - entity: number.phk180_warmwassersolltemperatur
                 name: Warmwassersolltemperatur (30–50 °C)
-              - entity: number.phk180_sollwert_ww_hysterese_warmepumpe
-                name: WW-Ausschalthysterese Wärmepumpe (5–10 K, max. 55 °C)
-              - entity: number.phk180_sollwert_ww_hysterese_e_heizstab
-                name: WW-Ausschalthysterese E-Heizstab (5–15 K, max. 60 °C)
-              - entity: number.phk180_sollwert_dauer_stossluftung
+              - entity: number.phk180_ww_hysterese_warmepumpe
+                name: WW-Ausschalthysterese Wärmepumpe (5–10 K)
+              - entity: number.phk180_ww_hysterese_e_heizstab
+                name: WW-Ausschalthysterese E-Heizstab (5–15 K)
+              - entity: number.phk180_dauer_stossluftung
                 name: Dauer Stoßlüftung (5–90 min)
-              - entity: sensor.phk180_vorrangschaltung_wp
-                name: Vorrangschaltung Wärmepumpe
-              - entity: button.phk180_wp_vorrangschaltung_umschalten
-                name: Vorrangschaltung umschalten
-              - entity: switch.phk180_legionellenschutz
-                name: Legionellenschutz
 
+      # === BEREICH 2: SENSOREN (MESSWERTE) ===
       - type: vertical-stack
         cards:
           - type: glance
-            title: Temperaturen Luft & System
+            title: Sensoren – Temperaturen (Messwerte)
             columns: 3
             entities:
               - entity: sensor.phk180_t_raum
-                name: Raum (BDE)
+                name: T-Raum
               - entity: sensor.phk180_t_lufteintritt
-                name: Lufteintritt
+                name: T-Lufteintritt
               - entity: sensor.phk180_t_zuluft
-                name: Zuluft
+                name: T-Zuluft
               - entity: sensor.phk180_t_abluft
-                name: Abluft
+                name: T-Abluft
               - entity: sensor.phk180_t_verdampfer
-                name: Verdampfer
-              - entity: sensor.phk180_sommer_bypass
-                name: Bypass
-
-          - type: glance
-            title: Warmwasserspeicher (PHS 300)
-            columns: 2
-            entities:
+                name: T-Verdampfer
               - entity: sensor.phk180_t_speicher_e_heizstab_oben
                 name: Speicher Oben (EHZ)
               - entity: sensor.phk180_t_speicher_warmepumpe_unten
                 name: Speicher Unten (WP)
 
           - type: entities
-            title: Lüftung, CO2 & Filterstatus
+            title: Sensoren – Luft, CO2, Feuchte & Filter
             show_header_toggle: false
             entities:
-              - entity: sensor.phk180_luftungsstufe
               - entity: sensor.phk180_volumenstrom
               - entity: sensor.phk180_drehzahl_aussenluft
               - entity: sensor.phk180_drehzahl_fortluft
@@ -133,10 +109,11 @@ views:
               - entity: button.phk180_filterwechsel_aussenfilter_quittieren
               - entity: button.phk180_filterwechsel_geratefilter_quittieren
 
+      # === BEREICH 3: SCHALTZUSTÄNDE & BETRIEBSSTUNDEN ===
       - type: vertical-stack
         cards:
           - type: glance
-            title: Live-Schaltzustände (Ausgänge & Eingänge)
+            title: Schaltzustände – Ausgänge & Eingänge
             columns: 4
             entities:
               - entity: binary_sensor.phk180_ventilator_aussenluft
@@ -165,43 +142,34 @@ views:
                 name: Türkontakt
 
           - type: entities
-            title: Betriebsstunden & Laufzeiten (Alle Stufen & Aggregate)
+            title: Schaltzustände – Status & Betriebsstunden
             show_header_toggle: false
             entities:
+              - entity: sensor.phk180_betriebsart
+              - entity: sensor.phk180_luftungsstufe
+              - entity: sensor.phk180_jahreszeit
+              - entity: sensor.phk180_vorrangschaltung_wp
+              - entity: sensor.phk180_storungsmeldung
               - entity: sensor.phk180_betriebsstunden_feuchteschutzluftung
-                name: Lüftungsstufe Feuchteschutz
               - entity: sensor.phk180_betriebsstunden_reduzierte_luftung
-                name: Lüftungsstufe Reduziert
               - entity: sensor.phk180_betriebsstunden_nennluftung
-                name: Lüftungsstufe Nennlüftung
               - entity: sensor.phk180_betriebsstunden_intensivluftung
-                name: Lüftungsstufe Intensivlüftung
               - entity: sensor.phk180_betriebsstunden_luftung_gesamt
-                name: Lüftung Gesamt
               - entity: sensor.phk180_betriebsstunden_warmepumpe
-                name: Wärmepumpe (Kompressor)
               - entity: sensor.phk180_betriebsstunden_trinkwassererwarmung
-                name: Trinkwassererwärmung (Ladepumpe)
               - entity: sensor.phk180_betriebsstunden_zh_zuluft
-                name: Zusatzheizung Zuluft
               - entity: sensor.phk180_betriebsstunden_zh_raum
-                name: Zusatzheizung Raum
               - entity: sensor.phk180_betriebsstunden_e_heizstab
-                name: E-Heizstab Speicher
               - entity: sensor.phk180_betriebsstunden_sole_umwalzpumpe
-                name: Sole-Umwälzpumpe
               - entity: sensor.phk180_betriebsstunden_solar_umwalzpumpe
-                name: Solar-Umwälzpumpe
               - entity: sensor.phk180_betriebsstunden_ofen_umwalzpumpe
-                name: Ofen-Umwälzpumpe
               - entity: sensor.phk180_betriebsstunden_evu_sperre
-                name: EVU-Sperre
 
   # ---------------------------------------------------------------------------
-  # TAB 2: Live-Anlagenschema (Nativ mit Picture-Elements - Ohne Zusatz-Addons)
+  # TAB 2: Live-Anlagenschema (Overlay)
   # ---------------------------------------------------------------------------
-  - title: Anlagenschema (Overlay)
-    path: schema-overlay
+  - title: Anlagenschema
+    path: schema
     icon: mdi:vector-polyline
     panel: true
     cards:
@@ -219,7 +187,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_t_abluft
             prefix: "ABL: "
@@ -231,7 +198,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_t_zuluft
             prefix: "ZUL: "
@@ -243,7 +209,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_t_verdampfer
             prefix: "Verd.: "
@@ -255,7 +220,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_t_speicher_e_heizstab_oben
             prefix: "Oben: "
@@ -267,7 +231,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_t_speicher_warmepumpe_unten
             prefix: "Unten: "
@@ -279,7 +242,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-label
             entity: sensor.phk180_umschaltventil_stellung
             prefix: "4/2-Ventil: "
@@ -291,7 +253,6 @@ views:
               background-color: "rgba(15, 23, 42, 0.85)"
               padding: "4px 8px"
               border-radius: "6px"
-
           - type: state-icon
             entity: binary_sensor.phk180_ventilator_aussenluft
             state_color: true
@@ -299,7 +260,6 @@ views:
               top: 31%
               left: 16.7%
               transform: translate(-50%, -50%) scale(1.3)
-
           - type: state-icon
             entity: binary_sensor.phk180_ventilator_fortluft
             state_color: true
@@ -307,7 +267,6 @@ views:
               top: 46.7%
               left: 16.7%
               transform: translate(-50%, -50%) scale(1.3)
-
           - type: state-icon
             entity: binary_sensor.phk180_sommer_bypass_offen
             state_color: true
@@ -315,7 +274,6 @@ views:
               top: 22%
               left: 31.7%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_kompressor_warmepumpe
             state_color: true
@@ -323,7 +281,6 @@ views:
               top: 69.3%
               left: 31.7%
               transform: translate(-50%, -50%) scale(1.5)
-
           - type: state-icon
             entity: binary_sensor.phk180_mv_anlaufentlastung
             state_color: true
@@ -331,7 +288,6 @@ views:
               top: 66%
               left: 23%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_mv_flussigleitung
             state_color: true
@@ -339,7 +295,6 @@ views:
               top: 72.5%
               left: 23%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_zusatzheizung_zuluft
             state_color: true
@@ -347,7 +302,6 @@ views:
               top: 46.7%
               left: 47.7%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_zusatzheizung_raum
             state_color: true
@@ -355,7 +309,6 @@ views:
               top: 69.5%
               left: 57%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_e_heizstab_speicher
             state_color: true
@@ -363,7 +316,6 @@ views:
               top: 42%
               left: 74.5%
               transform: translate(-50%, -50%)
-
           - type: state-icon
             entity: binary_sensor.phk180_speicherladepumpe
             state_color: true
