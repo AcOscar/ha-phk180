@@ -41,7 +41,7 @@ class Phk180ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            host = user_input[CONF_HOST].strip()
+            host = user_input[CONF_HOST].strip().replace("http://", "").replace("https://", "").rstrip("/")
             username = user_input[CONF_USERNAME].strip()
             password = user_input.get(CONF_PASSWORD, "")
 
@@ -54,9 +54,10 @@ class Phk180ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 if not data.get("details"):
                     errors["base"] = "cannot_connect"
                 else:
+                    clean_data = {**user_input, CONF_HOST: host}
                     return self.async_create_entry(
-                        title=f"PHK 180 ({host})",
-                        data=user_input,
+                        title=f"PHK180 ({host})",
+                        data=clean_data,
                     )
             except Exception:
                 errors["base"] = "cannot_connect"
