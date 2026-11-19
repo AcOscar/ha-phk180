@@ -51,7 +51,7 @@ class Phk180Coordinator(DataUpdateCoordinator[dict[str, dict[str, str]]]):
         sw_bde = self.get_val("details", "SwVersionBDE", "1.0.4")
         return DeviceInfo(
             identifiers={(DOMAIN, self.entry.entry_id)},
-            name="PHK 180 Kompaktgerät",
+            name="PHK180",
             manufacturer="Community Integration (Kompatibel mit AEREX PHK 180)",
             model="PHK 180 / PHS 300",
             sw_version=f"LT {sw_lt} / BDE {sw_bde}",
