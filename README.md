@@ -22,8 +22,8 @@ Diese Integration ermöglicht die lokale Einbindung einer **PHK 180** Lüftungs-
 
 ## Installation
 
-### Variante A: Über HACS (Empfohlen)
-1. Öffne in Home Assistant **HACS -> Drei-Punkte-Menü (oben rechts) -> Benutzerdefinierte Repositories**.
+### Variante A: Über Marketplace (Empfohlen)
+1. Öffne in Home Assistant **Marketplace -> Drei-Punkte-Menü (oben rechts) -> Benutzerdefinierte Repositories**.
 2. Trage die URL dieses GitHub-Repositories (`https://github.com/AcOscar/ha-phk180`) ein und wähle als Typ **Integration**.
 3. Suche nach **PHK 180 Local Web Control (Unofficial)**, klicke auf **Herunterladen** und starte Home Assistant neu.
 4. Gehe auf **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** und suche nach **PHK 180 Local Web Control**.
