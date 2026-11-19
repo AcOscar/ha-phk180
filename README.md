@@ -18,7 +18,7 @@ Diese Integration ermöglicht die lokale Einbindung einer **PHK 180** Lüftungs-
 - **Nur Endkunden-Ebene:** Die Integration greift ausschließlich auf Einstellungen und Abfragewerte zu, die auf der regulären Endkunden-Weboberfläche vorgesehen sind. Passwortgeschützte Installateur- oder Service-Ebenen werden weder abgefragt noch freigeschaltet.
 - **Closed-Loop Sollwertregelung mit technischer Grenzwertprüfung:** Alle einstellbaren Temperatur-, Hysterese- und Lüftungsparameter sind auf ihre technisch zulässigen Betriebsgrenzen begrenzt, sodass unzulässige Sollwerte gar nicht erst an das Gerät gesendet werden.
 - **Direktsteuerung:** Betriebsart, Lüftungsstufe, Stoßlüftung, Jahreszeit, Legionellenschutz, Vorrangschaltung sowie Ferienbetrieb.
-- **Über 50 Entitäten:** Alle Temperaturen, Lüfterdrehzahlen, Volumenströme, CO2-Werte, Schaltzustände und alle 14 Betriebsstundenzähler.
+- **Über 50 Entitäten:** Alle Temperaturen, Lüfterdrehzahlen, Volumenströme, CO2-Werte, Schaltzustände und alle Betriebsstundenzähler.
 
 ---
 
