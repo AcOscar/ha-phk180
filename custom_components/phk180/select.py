@@ -28,17 +28,18 @@ BETRIEBSART_MAP = {
     2: "Manuell",
     3: "Auto Zeit",
     4: "Auto Sensor",
-    5: "Ferien",
+    5: "Unfall",
     6: "Ferien",
 }
 
 BETRIEBSART_REV_MAP = {
+    "Aus": 0,
+    "Warmwasser": 1,
+    "Manuell": 2,
     "Auto Zeit": 3,
     "Auto Sensor": 4,
-    "Manuell": 2,
-    "Warmwasser": 1,
+    "Unfall": 5,
     "Ferien": 6,
-    "Aus": 0,
 }
 
 FAN_LEVEL_REV_MAP = {
