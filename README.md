@@ -1,10 +1,6 @@
 # PHK 180 Local Web Control (Unofficial Home Assistant Integration)
-[![HACS Badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz)
+
 [![Home Assistant Marketplace](https://img.shields.io/badge/Home%20Assistant-Marketplace%20(Custom)-41BDF5.svg)](https://www.home-assistant.io/integrations/marketplace/)
-
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AcOscar&repository=ha-phk180&category=integration)
-
-
 
 > **RECHTLICHER HINWEIS / DISCLAIMER (KEIN HERSTELLERPROJEKT):**
 > Dies ist ein **unabhängiges, privates und inoffizielles Open-Source-Community-Projekt** (`phk180`) unter der **MIT-Lizenz**.
@@ -27,6 +23,8 @@ Diese Integration ermöglicht die lokale Einbindung einer **PHK 180** Lüftungs-
 ---
 
 ## Installation
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AcOscar&repository=ha-phk180&category=integration)
 
 ### Variante A: Über Marketplace (Empfohlen)
 1. Öffne in Home Assistant **Marketplace -> Drei-Punkte-Menü (oben rechts) -> Benutzerdefinierte Repositories**.
