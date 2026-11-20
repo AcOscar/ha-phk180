@@ -26,16 +26,22 @@ Diese Integration ermöglicht die lokale Einbindung einer **PHK 180** Lüftungs-
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AcOscar&repository=ha-phk180&category=integration)
 
+### Vorraussetzung
+Die Anlage muss an das LAN angeschlossen sein und das Webinterface muss aktiviert sein. Der Standardbenutzernamen ist "admin". Am Bedientteil kann der Name wieder auf "admin" ohne Kennwort zurückgestellt werden (Einstellungen -> Grundeinstellungen -> Webserver Reset Login). 
+
 ### Variante A: Über Marketplace (Empfohlen)
 1. Öffne in Home Assistant **Marketplace -> Drei-Punkte-Menü (oben rechts) -> Benutzerdefinierte Repositories**.
 2. Trage die URL dieses GitHub-Repositories (`https://github.com/AcOscar/ha-phk180`) ein und wähle als Typ **Integration**.
 3. Suche nach **PHK 180 Local Web Control (Unofficial)**, klicke auf **Herunterladen** und starte Home Assistant neu.
 4. Gehe auf **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** und suche nach **PHK 180 Local Web Control**.
+5. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
 
 ### Variante B: Manuelle Installation
 1. Kopiere den Ordner `custom_components/phk180` in dein Home Assistant Verzeichnis unter `/config/custom_components/phk180`.
 2. *(Optional für das Live-Schema)* Kopiere den Ordner `www/phk180` nach `/config/www/phk180`.
-3. Starte Home Assistant neu und füge die Integration unter **Einstellungen -> Geräte & Dienste** hinzu.
+3. Starte Home Assistant neu und füge die Integration unter **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** hinzu.
+4. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
+
 
 ## Lizenz
 Veröffentlicht unter der [MIT License](LICENSE).
