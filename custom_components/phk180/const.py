@@ -24,6 +24,7 @@ PLATFORMS = [
     "select",
     "switch",
     "button",
+    "date",
 ]
 
 # Technisch zulässige Betriebsgrenzen für Endkunden-Sollwerte:

@@ -6,11 +6,11 @@
 # durch den Hersteller der Anlage (AEREX HaustechnikSysteme GmbH / MAICO-Gruppe).
 # =============================================================================
 set_vacation_return_date:
-  name: Ferien-Rückkehrdatum setzen
-  description: Überträgt das Rückkehrdatum für den Ferienbetrieb im Format TT-MM-JJJJ an Parameter D[1] der PHK 180 Anlage.
+  name: Ferien-Rückreisedatum setzen
+  description: Überträgt das Rückreisedatum für den Ferienbetrieb im Format TT-MM-JJJJ an Parameter D[1] der PHK 180 Anlage.
   fields:
     return_date:
-      name: Rückkehrdatum
+      name: Rückreisedatum
       description: Datum im Format YYYY-MM-DD (z. B. 2026-12-26)
       required: true
       example: "2026-12-26"

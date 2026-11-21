@@ -8,7 +8,6 @@
       .pipe-air-warm { stroke: #fb923c; stroke-width: 8; fill: none; stroke-linecap: round; }
       .title { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }
       .subtitle { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; fill: #94a3b8; }
-      .label { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #cbd5e1; }
       .val-box { fill: #0f172a; stroke: #475569; stroke-width: 1.5; rx: 6; }
       .val-text { font-family: 'Consolas', monospace; font-size: 14px; font-weight: bold; fill: #38bdf8; text-anchor: middle; }
       .comp-off { fill: #334155; stroke: #64748b; stroke-width: 2; transition: all 0.3s ease; }

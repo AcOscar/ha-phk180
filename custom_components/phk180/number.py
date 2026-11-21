@@ -32,7 +32,7 @@ from .coordinator import Phk180Coordinator
 
 @dataclass(frozen=True, kw_only=True)
 class Phk180NumberEntityDescription(NumberEntityDescription):
-    """Describe an PHK 180 number entity."""
+    """Describe a PHK 180 number entity."""
 
     endpoint_htm: str
     cgx_page: str
@@ -45,8 +45,8 @@ class Phk180NumberEntityDescription(NumberEntityDescription):
 
 NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
     Phk180NumberEntityDescription(
-        key="sollwert_raumtemperatur",
-        name="PHK180 Sollwert Raumtemperatur",
+        key="raumsolltemperatur",
+        name="Raumsolltemperatur",
         icon="mdi:thermometer",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_min_value=18.0,
@@ -60,8 +60,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=20.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_absenktemperatur_ferien",
-        name="PHK180 Sollwert Absenktemperatur Ferien",
+        key="absenktemperatur_ferien",
+        name="Absenktemperatur Ferien",
         icon="mdi:home-thermometer-outline",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_min_value=18.0,
@@ -75,8 +75,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=18.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_warmwasser",
-        name="PHK180 Sollwert Warmwasser",
+        key="warmwassersolltemperatur",
+        name="Warmwassersolltemperatur",
         icon="mdi:water-thermometer",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         native_min_value=30.0,
@@ -90,8 +90,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=45.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_ww_hysterese_warmepumpe",
-        name="PHK180 Sollwert WW-Hysterese Wärmepumpe",
+        key="ww_hysterese_warmepumpe",
+        name="WW-Hysterese Wärmepumpe",
         icon="mdi:thermometer-chevron-up",
         native_unit_of_measurement="K",
         native_min_value=5.0,
@@ -105,8 +105,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=5.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_ww_hysterese_e_heizstab",
-        name="PHK180 Sollwert WW-Hysterese E-Heizstab",
+        key="ww_hysterese_e_heizstab",
+        name="WW-Hysterese E-Heizstab",
         icon="mdi:heating-coil",
         native_unit_of_measurement="K",
         native_min_value=5.0,
@@ -120,8 +120,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=5.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_abgleich_raumtemperatur",
-        name="PHK180 Sollwert Abgleich Raumtemperatur",
+        key="abgleich_raumtemperatur",
+        name="Abgleich Raumtemperatur",
         icon="mdi:thermometer-plus",
         native_unit_of_measurement="K",
         native_min_value=-3.0,
@@ -135,8 +135,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=0.0,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_einschaltpunkt_zh_zuluft",
-        name="PHK180 Sollwert Einschaltpunkt ZH Zuluft",
+        key="einschaltpunkt_zh_zuluft",
+        name="Einschaltpunkt ZH Zuluft",
         icon="mdi:radiator",
         native_unit_of_measurement="K",
         native_min_value=-2.0,
@@ -150,8 +150,8 @@ NUMBER_DESCRIPTIONS: tuple[Phk180NumberEntityDescription, ...] = (
         default_val=-0.7,
     ),
     Phk180NumberEntityDescription(
-        key="sollwert_dauer_stossluftung",
-        name="PHK180 Sollwert Dauer Stoßlüftung",
+        key="dauer_stossluftung",
+        name="Dauer Stoßlüftung",
         icon="mdi:timer-cog-outline",
         native_unit_of_measurement=UnitOfTime.MINUTES,
         native_min_value=5.0,
@@ -180,9 +180,10 @@ async def async_setup_entry(
 
 
 class Phk180Number(CoordinatorEntity[Phk180Coordinator], NumberEntity):
-    """Representation of an PHK 180 Number with closed-loop limit enforcement."""
+    """Representation of a PHK 180 Number with closed-loop limit enforcement."""
 
     entity_description: Phk180NumberEntityDescription
+    _attr_has_entity_name = True
     _attr_mode = NumberMode.SLIDER
 
     def __init__(

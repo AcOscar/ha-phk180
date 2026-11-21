@@ -28,18 +28,17 @@ BETRIEBSART_MAP = {
     2: "Manuell",
     3: "Auto Zeit",
     4: "Auto Sensor",
-    5: "Unfall",
+    5: "Ferien",
     6: "Ferien",
 }
 
 BETRIEBSART_REV_MAP = {
-    "Aus": 0,
-    "Warmwasser": 1,
-    "Manuell": 2,
     "Auto Zeit": 3,
     "Auto Sensor": 4,
-    "Unfall": 5,
+    "Manuell": 2,
+    "Warmwasser": 1,
     "Ferien": 6,
+    "Aus": 0,
 }
 
 FAN_LEVEL_REV_MAP = {
@@ -69,7 +68,8 @@ async def async_setup_entry(
 class Phk180BetriebsartSelect(CoordinatorEntity[Phk180Coordinator], SelectEntity):
     """Select entity for PHK 180 operating mode (P[522][0])."""
 
-    _attr_name = "PHK180 Betriebsart Auswahl"
+    _attr_has_entity_name = True
+    _attr_name = "Betriebsart Auswahl"
     _attr_icon = "mdi:thermostat-cog"
     _attr_options = list(BETRIEBSART_REV_MAP.keys())
 
@@ -95,7 +95,8 @@ class Phk180BetriebsartSelect(CoordinatorEntity[Phk180Coordinator], SelectEntity
 class Phk180LueftungsstufeSelect(CoordinatorEntity[Phk180Coordinator], SelectEntity):
     """Select entity for PHK 180 fan speed level (P[225][0])."""
 
-    _attr_name = "PHK180 Lüftungsstufe Auswahl"
+    _attr_has_entity_name = True
+    _attr_name = "Lüftungsstufe Auswahl"
     _attr_icon = "mdi:fan-speed-2"
     _attr_options = list(FAN_LEVEL_REV_MAP.keys())
 

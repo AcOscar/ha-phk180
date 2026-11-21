@@ -20,6 +20,7 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -30,18 +31,18 @@ from .coordinator import Phk180Coordinator
 
 @dataclass(frozen=True, kw_only=True)
 class Phk180BinarySensorEntityDescription(BinarySensorEntityDescription):
-    """Describe an PHK 180 binary sensor."""
+    """Describe a PHK 180 binary sensor (Schaltzustand)."""
 
     section: str
     xml_key: str
-    invert: bool = False
     off_value: str = "0"
+    entity_category: EntityCategory = EntityCategory.DIAGNOSTIC
 
 
 BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     Phk180BinarySensorEntityDescription(
         key="ventilator_aussenluft",
-        name="PHK180 Ventilator Außenluft",
+        name="Ventilator Außenluft",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:fan",
         section="details",
@@ -49,7 +50,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="ventilator_fortluft",
-        name="PHK180 Ventilator Fortluft",
+        name="Ventilator Fortluft",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:fan",
         section="details",
@@ -57,7 +58,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="sommer_bypass_offen",
-        name="PHK180 Sommer-Bypass Offen",
+        name="Sommer-Bypass Offen",
         device_class=BinarySensorDeviceClass.OPENING,
         icon="mdi:valve-open",
         section="details",
@@ -66,7 +67,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="kompressor_warmepumpe",
-        name="PHK180 Kompressor (Wärmepumpe)",
+        name="Kompressor (Wärmepumpe)",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:heat-pump",
         section="details",
@@ -74,7 +75,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="mv_anlaufentlastung",
-        name="PHK180 MV Anlaufentlastung",
+        name="MV Anlaufentlastung",
         device_class=BinarySensorDeviceClass.OPENING,
         icon="mdi:valve",
         section="details",
@@ -82,7 +83,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="mv_flussigleitung",
-        name="PHK180 MV Flüssigleitung",
+        name="MV Flüssigleitung",
         device_class=BinarySensorDeviceClass.OPENING,
         icon="mdi:valve",
         section="details",
@@ -90,7 +91,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="umschaltventil_trinkwasser_luft",
-        name="PHK180 Umschaltventil Trinkwasser/Luft",
+        name="Umschaltventil Trinkwasser/Luft",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:call-split",
         section="details",
@@ -98,7 +99,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="speicherladepumpe",
-        name="PHK180 Speicherladepumpe",
+        name="Speicherladepumpe",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:pump",
         section="details",
@@ -106,7 +107,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="sole_umwalzpumpe",
-        name="PHK180 Sole-Umwälzpumpe",
+        name="Sole-Umwälzpumpe",
         device_class=BinarySensorDeviceClass.RUNNING,
         icon="mdi:pump",
         section="details",
@@ -114,7 +115,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="e_heizstab_speicher",
-        name="PHK180 E-Heizstab Speicher",
+        name="E-Heizstab Speicher",
         device_class=BinarySensorDeviceClass.HEAT,
         icon="mdi:heating-coil",
         section="details",
@@ -122,7 +123,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="zusatzheizung_zuluft",
-        name="PHK180 Zusatzheizung Zuluft",
+        name="Zusatzheizung Zuluft",
         device_class=BinarySensorDeviceClass.HEAT,
         icon="mdi:radiator",
         section="details",
@@ -130,7 +131,7 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="zusatzheizung_raum",
-        name="PHK180 Zusatzheizung Raum",
+        name="Zusatzheizung Raum",
         device_class=BinarySensorDeviceClass.HEAT,
         icon="mdi:radiator",
         section="details",
@@ -138,14 +139,14 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[Phk180BinarySensorEntityDescription, ...] = (
     ),
     Phk180BinarySensorEntityDescription(
         key="turkontakt_offen",
-        name="PHK180 Türkontakt Offen",
+        name="Türkontakt Offen",
         device_class=BinarySensorDeviceClass.DOOR,
         section="details",
         xml_key="TuerKontakt",
     ),
     Phk180BinarySensorEntityDescription(
         key="evu_sperre_aktiv",
-        name="PHK180 EVU-Sperre Aktiv",
+        name="EVU-Sperre Aktiv",
         device_class=BinarySensorDeviceClass.LOCK,
         section="details",
         xml_key="EVUSperre",
@@ -169,9 +170,10 @@ async def async_setup_entry(
 class Phk180BinarySensor(
     CoordinatorEntity[Phk180Coordinator], BinarySensorEntity
 ):
-    """Representation of an PHK 180 Binary Sensor."""
+    """Representation of a PHK 180 Binary Sensor."""
 
     entity_description: Phk180BinarySensorEntityDescription
+    _attr_has_entity_name = True
 
     def __init__(
         self,

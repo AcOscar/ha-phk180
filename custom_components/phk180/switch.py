@@ -40,7 +40,7 @@ class Phk180SwitchEntityDescription(SwitchEntityDescription):
 SWITCH_DESCRIPTIONS: tuple[Phk180SwitchEntityDescription, ...] = (
     Phk180SwitchEntityDescription(
         key="stossluftung",
-        name="PHK180 Stoßlüftung",
+        name="Stoßlüftung",
         icon="mdi:fan-plus",
         endpoint_htm="index.htm",
         param="S[229][0]",
@@ -51,7 +51,7 @@ SWITCH_DESCRIPTIONS: tuple[Phk180SwitchEntityDescription, ...] = (
     ),
     Phk180SwitchEntityDescription(
         key="sommerbetrieb_jahreszeit",
-        name="PHK180 Sommerbetrieb (Jahreszeit)",
+        name="Sommerbetrieb (Jahreszeit)",
         icon="mdi:white-balance-sunny",
         endpoint_htm="index.htm",
         param="S[523][0]",
@@ -62,7 +62,7 @@ SWITCH_DESCRIPTIONS: tuple[Phk180SwitchEntityDescription, ...] = (
     ),
     Phk180SwitchEntityDescription(
         key="legionellenschutz",
-        name="PHK180 Legionellenschutz",
+        name="Legionellenschutz",
         icon="mdi:bacteria-outline",
         endpoint_htm="settings.htm",
         param="S[958][0]",
@@ -90,6 +90,7 @@ class Phk180Switch(CoordinatorEntity[Phk180Coordinator], SwitchEntity):
     """Representation of a PHK 180 toggle switch."""
 
     entity_description: Phk180SwitchEntityDescription
+    _attr_has_entity_name = True
 
     def __init__(
         self,
