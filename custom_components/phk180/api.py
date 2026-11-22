@@ -24,7 +24,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Any
 
-from .const import PARAMETER_LIMITS
+from .const import PARAMETER_LIMITS, SETTINGS_SCAN_INTERVAL
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -159,6 +159,12 @@ class Phk180Api:
         self.username = username.strip()
         self.password = password or ""
         self._lock = asyncio.Lock()
+        self._settings_cache: dict[str, str] | None = None
+        self._settings_last_fetch: float = 0.0
+
+    def invalidate_settings_cache(self) -> None:
+        """Force settings.cgx to be fetched on the next poll."""
+        self._settings_last_fetch = 0.0
 
     @property
     def host(self) -> str:
@@ -326,13 +332,28 @@ class Phk180Api:
         self._sync_advance_time_component("T[1]", target_minute, 60, 1)
         self._sync_advance_time_component("T[0]", target_hour, 24, 0)
 
-    async def async_fetch_all(self) -> dict[str, dict[str, str]]:
-        """Fetch index.cgx, details.cgx, and settings.cgx sequentially."""
+    async def async_fetch_all(self, force_settings: bool = False) -> dict[str, dict[str, str]]:
+        """Fetch index.cgx and details.cgx on every poll; cache settings.cgx between intervals."""
         async with self._lock:
             loop = asyncio.get_running_loop()
             index_data = await loop.run_in_executor(None, self._sync_fetch_cgx, "index.cgx")
             details_data = await loop.run_in_executor(None, self._sync_fetch_cgx, "details.cgx")
-            settings_data = await loop.run_in_executor(None, self._sync_fetch_cgx, "settings.cgx")
+
+            now = time_mod.monotonic()
+            need_settings = (
+                force_settings
+                or self._settings_cache is None
+                or (now - self._settings_last_fetch) >= SETTINGS_SCAN_INTERVAL
+            )
+            if need_settings:
+                settings_data = await loop.run_in_executor(
+                    None, self._sync_fetch_cgx, "settings.cgx"
+                )
+                self._settings_cache = settings_data
+                self._settings_last_fetch = time_mod.monotonic()
+            else:
+                settings_data = dict(self._settings_cache)
+
             return {
                 "index": index_data,
                 "details": details_data,
@@ -346,6 +367,8 @@ class Phk180Api:
             await loop.run_in_executor(
                 None, self._sync_send_cmd, endpoint_htm, f"{param}={val}"
             )
+            if endpoint_htm == "settings.htm":
+                self._settings_last_fetch = 0.0
 
     async def async_set_date(self, date_str: str) -> None:
         """Set system date (DD-MM-YYYY) via settings.htm?D[0]=..."""
@@ -358,6 +381,7 @@ class Phk180Api:
             await loop.run_in_executor(
                 None, self._sync_set_time_closed_loop, int(target_hour), int(target_minute)
             )
+            self._settings_last_fetch = 0.0
 
     async def async_sync_datetime(
         self, date_str: str, target_hour: int, target_minute: int
@@ -371,6 +395,7 @@ class Phk180Api:
             await loop.run_in_executor(
                 None, self._sync_send_cmd, "settings.htm", f"D[0]={date_str}"
             )
+            self._settings_last_fetch = 0.0
 
     async def async_set_step_value(
         self,
@@ -396,3 +421,5 @@ class Phk180Api:
                 step_size,
                 target_val,
             )
+            if endpoint_htm == "settings.htm" or cgx_page == "settings.cgx":
+                self._settings_last_fetch = 0.0

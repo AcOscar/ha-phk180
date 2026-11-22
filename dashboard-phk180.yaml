@@ -1,0 +1,177 @@
+views:
+  - type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Betriebsart
+            heading_style: title
+          - type: tile
+            entity: select.phk180_betriebsart_auswahl
+            name: Betriebsart
+            features:
+              - type: select-options
+          - type: tile
+            entity: select.phk180_luftungsstufe_auswahl
+            name: Lüftungsstufe
+            features:
+              - type: select-options
+          - type: tile
+            entity: number.phk180_raumsolltemperatur
+            name: Raum Solltemperatur
+            features:
+              - type: numeric-input
+          - type: tile
+            entity: switch.phk180_sommerbetrieb_jahreszeit
+            name: Sommerbetrieb
+            features:
+              - type: toggle
+          - type: statistics-graph
+            grid_options:
+              columns: 24
+            entities:
+              - sensor.phk180_t_raum
+              - sensor.phk180_t_abluft
+              - sensor.phk180_t_zuluft
+            days_to_show: 1
+            period: hour
+            chart_type: line
+            stat_types:
+              - mean
+            min_y_axis: 0
+            max_y_axis: 40
+          - type: tile
+            entity: sensor.phk180_betriebsart_2
+        column_span: 2
+    title: Grundeinstellung
+    cards: []
+    badges:
+      - type: entity
+        entity: sensor.phk180_storungsmeldung
+  - type: sections
+    title: Abfrage
+    path: abfrage
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Temperaturen
+          - type: tile
+            entity: sensor.phk180_t_raum
+            name: T-Raum
+          - type: tile
+            entity: sensor.phk180_t_lufteintritt
+            name: T-Lufteintritt
+          - type: tile
+            entity: sensor.phk180_t_zuluft
+            name: T-Zuluft
+          - type: tile
+            entity: sensor.phk180_t_abluft
+            name: T-Abluft
+          - type: tile
+            entity: sensor.phk180_t_verdampfer
+            name: T-Verdampfer
+          - type: tile
+            entity: sensor.phk180_t_speicher_e_heizstab_oben
+            name: T-Speicher E-Heizung
+          - type: tile
+            entity: sensor.phk180_t_speicher_warmepumpe_unten
+            name: T-Speicher Wärmepumpe
+      - type: grid
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Schaltzustände
+          - type: heading
+            heading_style: subtitle
+            heading: Ausgänge
+          - type: tile
+            entity: binary_sensor.phk180_ventilator_aussenluft
+            name: Ventilator Aussenluft
+          - type: tile
+            entity: binary_sensor.phk180_ventilator_fortluft
+            name: Vetnilator Fortluft
+          - type: tile
+            entity: sensor.phk180_sommer_bypass
+            name: Sommer Bypass
+          - type: tile
+            entity: binary_sensor.phk180_kompressor_warmepumpe
+            name: Kompressor
+          - type: tile
+            entity: binary_sensor.phk180_mv_anlaufentlastung
+            name: MV Anlaufentlastung
+          - type: tile
+            entity: binary_sensor.phk180_mv_flussigleitung
+            name: MV Flüssigleitung
+          - type: tile
+            entity: binary_sensor.phk180_umschaltventil_trinkwasser_luft
+            name: Umschaltung Trinkwasser - Luft
+          - type: tile
+            entity: binary_sensor.phk180_speicherladepumpe
+            name: Speicherladepumpe
+          - type: tile
+            entity: binary_sensor.phk180_e_heizstab_speicher
+            name: E-Heizstab Speicher
+          - type: tile
+            entity: binary_sensor.phk180_zusatzheizung_zuluft
+            name: Nachheizregister
+          - type: heading
+            heading_style: subtitle
+            heading: Eingänge
+          - type: tile
+            entity: binary_sensor.phk180_turkontakt_offen
+            name: Türkontakt
+      - type: grid
+        cards:
+          - type: heading
+            heading: Betriebsstunden
+            heading_style: title
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_feuchteschutzluftung
+            name: Feuchteschutz
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_reduzierte_luftung
+            name: Reduziert
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_nennluftung
+            name: Nenn
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_intensivluftung
+            name: Intensiv
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_luftung_gesamt
+            name: Lüftung Gesamt
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_warmepumpe
+            name: Wärmepumpe
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_trinkwassererwarmung
+            name: Trinkwassererwärmung
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_e_heizstab
+            name: E-Heizstab
+          - type: tile
+            entity: sensor.phk180_betriebsstunden_zh_zuluft
+            name: E-Zuluft
+  - type: sections
+    title: Einstellungen
+    path: einstellungen
+    sections:
+      - type: grid
+        cards:
+          - type: tile
+            entity: number.phk180_warmwassersolltemperatur
+            features:
+              - type: numeric-input
+          - type: tile
+            entity: switch.phk180_legionellenschutz
+            features:
+              - type: toggle
+          - type: tile
+            entity: button.phk180_wp_vorrangschaltung_umschalten
+            state_content:
+              - state
+              - content
+          - type: tile
+            entity: sensor.phk180_vorrangschaltung_wp

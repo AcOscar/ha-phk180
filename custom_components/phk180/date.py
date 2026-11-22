@@ -91,14 +91,15 @@ class Phk180Systemdatum(CoordinatorEntity[Phk180Coordinator], DateEntity):
 
     @property
     def native_value(self) -> date | None:
-        """Return the current system date from settings.cgx (Datum)."""
-        raw = str(self.coordinator.get_val("settings", "Datum", "")).strip()
+        """Return the current system date (prefer live index.cgx aktuellesDatum)."""
+        aktuell = str(
+            self.coordinator.get_val("index", "aktuellesDatum", "")
+            or self.coordinator.get_val("details", "aktuellesDatum", "")
+            or self.coordinator.get_val("settings", "aktuellesDatum", "")
+        ).strip()
+        raw = aktuell.split(" ", 1)[0] if aktuell else ""
         if not raw:
-            aktuell = str(
-                self.coordinator.get_val("settings", "aktuellesDatum", "")
-                or self.coordinator.get_val("index", "aktuellesDatum", "")
-            ).strip()
-            raw = aktuell.split(" ", 1)[0] if aktuell else ""
+            raw = str(self.coordinator.get_val("settings", "Datum", "")).strip()
         if not raw or raw == "00.00.2000":
             return None
         for fmt in ("%d.%m.%Y", "%d-%m-%Y", "%Y-%m-%d"):

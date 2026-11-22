@@ -52,11 +52,12 @@ class Phk180Systemuhrzeit(CoordinatorEntity[Phk180Coordinator], TimeEntity):
 
     @property
     def native_value(self) -> time | None:
-        """Return the current system time from settings.cgx (aktuelleUhrzeit)."""
+        """Return the current system time (prefer live index.cgx aktuellesDatum)."""
         raw = (
-            self.coordinator.get_val("settings", "aktuelleUhrzeit")
+            self.coordinator.get_val("index", "aktuellesDatum")
+            or self.coordinator.get_val("details", "aktuellesDatum")
+            or self.coordinator.get_val("settings", "aktuelleUhrzeit")
             or self.coordinator.get_val("settings", "aktuellesDatum")
-            or self.coordinator.get_val("index", "aktuellesDatum")
         )
         parsed = parse_time_hm(raw)
         if parsed is None:
