@@ -19,6 +19,7 @@ import logging
 import re
 import socket
 import struct
+import time as time_mod
 import urllib.request
 import xml.etree.ElementTree as ET
 from typing import Any
@@ -26,6 +27,20 @@ from typing import Any
 from .const import PARAMETER_LIMITS
 
 _LOGGER = logging.getLogger(__name__)
+
+
+def parse_time_hm(val_str: Any) -> tuple[int, int] | None:
+    """Extract (hour, minute) from strings like '18:27' or '13.11.2026 18:27'."""
+    if val_str is None or val_str == "":
+        return None
+    match = re.search(r"(\d{1,2}):(\d{2})", str(val_str))
+    if not match:
+        return None
+    hour = int(match.group(1))
+    minute = int(match.group(2))
+    if 0 <= hour <= 23 and 0 <= minute <= 59:
+        return hour, minute
+    return None
 
 
 def extract_float(val_str: Any, default: float = 0.0) -> float:
@@ -244,6 +259,73 @@ class Phk180Api:
             query = f"C[{param_id}][{param_idx}][{direction}]={jump_str}"
             self._sync_send_cmd(endpoint_htm, query)
 
+    def _sync_read_device_time(self) -> tuple[int, int] | None:
+        """Read current (hour, minute) from settings.cgx."""
+        data = self._sync_fetch_cgx("settings.cgx")
+        return parse_time_hm(
+            data.get("aktuelleUhrzeit") or data.get("aktuellesDatum")
+        )
+
+    def _sync_advance_time_component(
+        self,
+        param_name: str,
+        target_val: int,
+        modulo: int,
+        component_idx: int,
+    ) -> None:
+        """Advance hour (T[0]) or minute (T[1]) to target_val using adaptive closed-loop steps.
+
+        Tries a single jump T[x]=diff first; if the firmware only supports +1 per request,
+        falls back automatically to single T[x]=1 increments.
+        """
+        cur_hm = self._sync_read_device_time()
+        if cur_hm is None:
+            _LOGGER.warning("Konnte aktuelle Geräteuhrzeit nicht aus settings.cgx lesen.")
+            return
+
+        cur = cur_hm[component_idx]
+        diff = (target_val - cur) % modulo
+        if diff == 0:
+            return
+
+        if diff == 1:
+            self._sync_send_cmd("settings.htm", f"{param_name}=1")
+            return
+
+        # Try multi-step jump first (diff is 2..59, fits maxlength=2)
+        self._sync_send_cmd("settings.htm", f"{param_name}={diff}")
+        new_hm = self._sync_read_device_time()
+        if new_hm is None:
+            return
+
+        new_val = new_hm[component_idx]
+        if new_val == target_val:
+            return
+
+        # If multi-step had no effect at all, verify that single-step (=1) advances the value
+        if new_val == cur:
+            self._sync_send_cmd("settings.htm", f"{param_name}=1")
+            check_hm = self._sync_read_device_time()
+            if check_hm is None or check_hm[component_idx] == cur:
+                _LOGGER.warning(
+                    "Parameter %s konnte nicht verändert werden (bleibt bei %s).",
+                    param_name,
+                    cur,
+                )
+                return
+            new_val = check_hm[component_idx]
+
+        remaining = (target_val - new_val) % modulo
+        for _ in range(remaining):
+            time_mod.sleep(0.05)
+            self._sync_send_cmd("settings.htm", f"{param_name}=1")
+
+    def _sync_set_time_closed_loop(self, target_hour: int, target_minute: int) -> None:
+        """Set device time via settings.htm T[1] (minutes) and T[0] (hours)."""
+        # Minutes first so any 59->00 hour rollover is corrected in the next step
+        self._sync_advance_time_component("T[1]", target_minute, 60, 1)
+        self._sync_advance_time_component("T[0]", target_hour, 24, 0)
+
     async def async_fetch_all(self) -> dict[str, dict[str, str]]:
         """Fetch index.cgx, details.cgx, and settings.cgx sequentially."""
         async with self._lock:
@@ -263,6 +345,31 @@ class Phk180Api:
             loop = asyncio.get_running_loop()
             await loop.run_in_executor(
                 None, self._sync_send_cmd, endpoint_htm, f"{param}={val}"
+            )
+
+    async def async_set_date(self, date_str: str) -> None:
+        """Set system date (DD-MM-YYYY) via settings.htm?D[0]=..."""
+        await self.async_send_cmd("settings.htm", "D[0]", date_str)
+
+    async def async_set_time(self, target_hour: int, target_minute: int) -> None:
+        """Set system time via settings.htm?T[1]=... and T[0]=..."""
+        async with self._lock:
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(
+                None, self._sync_set_time_closed_loop, int(target_hour), int(target_minute)
+            )
+
+    async def async_sync_datetime(
+        self, date_str: str, target_hour: int, target_minute: int
+    ) -> None:
+        """Synchronize both system time and date (date last to guard against midnight wrap)."""
+        async with self._lock:
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(
+                None, self._sync_set_time_closed_loop, int(target_hour), int(target_minute)
+            )
+            await loop.run_in_executor(
+                None, self._sync_send_cmd, "settings.htm", f"D[0]={date_str}"
             )
 
     async def async_set_step_value(

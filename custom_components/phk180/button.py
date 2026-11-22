@@ -16,9 +16,11 @@ from dataclasses import dataclass
 
 from homeassistant.components.button import ButtonEntity, ButtonEntityDescription
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.util import dt as dt_util
 
 from .const import DOMAIN
 from .coordinator import Phk180Coordinator
@@ -84,9 +86,11 @@ async def async_setup_entry(
 ) -> None:
     """Set up PHK 180 buttons."""
     coordinator: Phk180Coordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities(
+    entities: list[ButtonEntity] = [
         Phk180Button(coordinator, desc) for desc in BUTTON_DESCRIPTIONS
-    )
+    ]
+    entities.append(Phk180SyncDateTimeButton(coordinator))
+    async_add_entities(entities)
 
 
 class Phk180Button(CoordinatorEntity[Phk180Coordinator], ButtonEntity):
@@ -112,5 +116,28 @@ class Phk180Button(CoordinatorEntity[Phk180Coordinator], ButtonEntity):
             self.entity_description.endpoint_htm,
             self.entity_description.param,
             self.entity_description.val,
+        )
+        await self.coordinator.async_request_refresh()
+
+
+class Phk180SyncDateTimeButton(CoordinatorEntity[Phk180Coordinator], ButtonEntity):
+    """Button to synchronize PHK 180 date and time with Home Assistant."""
+
+    _attr_has_entity_name = True
+    _attr_name = "Systemzeit Synchronisieren"
+    _attr_icon = "mdi:clock-sync"
+    _attr_entity_category = EntityCategory.CONFIG
+
+    def __init__(self, coordinator: Phk180Coordinator) -> None:
+        """Initialize the sync date/time button."""
+        super().__init__(coordinator)
+        self._attr_unique_id = "phk180_btn_systemzeit_synchronisieren"
+        self._attr_device_info = coordinator.device_info
+
+    async def async_press(self) -> None:
+        """Synchronize system time (T[1]/T[0]) and date (D[0]) with Home Assistant."""
+        now = dt_util.now()
+        await self.coordinator.api.async_sync_datetime(
+            now.strftime("%d-%m-%Y"), now.hour, now.minute
         )
         await self.coordinator.async_request_refresh()

@@ -29,7 +29,7 @@ BETRIEBSART_MAP = {
     3: "Auto Zeit",
     4: "Auto Sensor",
     5: "Ferien",
-    6: "Ferien",
+    6: "Unfall",
 }
 
 BETRIEBSART_REV_MAP = {
@@ -37,7 +37,8 @@ BETRIEBSART_REV_MAP = {
     "Auto Sensor": 4,
     "Manuell": 2,
     "Warmwasser": 1,
-    "Ferien": 6,
+    "Ferien": 5,
+    "Unfall": 6,
     "Aus": 0,
 }
 

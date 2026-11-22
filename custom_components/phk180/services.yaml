@@ -20,3 +20,7 @@ set_vacation_return_date:
 sync_system_date:
   name: Systemdatum synchronisieren
   description: Synchronisiert das aktuelle Systemdatum von Home Assistant mit dem Parameter D[0] der PHK 180 Anlage.
+
+sync_system_datetime:
+  name: Systemdatum & Uhrzeit synchronisieren
+  description: Synchronisiert sowohl die aktuelle Uhrzeit (T[1]/T[0]) als auch das Systemdatum (D[0]) von Home Assistant mit der PHK 180 Anlage.

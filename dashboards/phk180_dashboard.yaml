@@ -53,6 +53,17 @@ views:
                 name: Ferienbetrieb beenden (Auto Zeit)
 
           - type: entities
+            title: Steuerung – Datum & Uhrzeit
+            show_header_toggle: false
+            entities:
+              - entity: date.phk180_systemdatum
+                name: Systemdatum einstellen
+              - entity: time.phk180_systemuhrzeit
+                name: Systemuhrzeit einstellen
+              - entity: button.phk180_systemzeit_synchronisieren
+                name: Datum & Uhrzeit mit Home Assistant synchronisieren
+
+          - type: entities
             title: Steuerung – Sollwerte & Parameter
             show_header_toggle: false
             entities:
