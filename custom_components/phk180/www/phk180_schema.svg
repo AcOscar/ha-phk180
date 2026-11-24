@@ -8,14 +8,15 @@
       .pipe-air-warm { stroke: #fb923c; stroke-width: 8; fill: none; stroke-linecap: round; }
       .title { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }
       .subtitle { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; fill: #94a3b8; }
+      .label { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #cbd5e1; }
       .val-box { fill: #0f172a; stroke: #475569; stroke-width: 1.5; rx: 6; }
       .val-text { font-family: 'Consolas', monospace; font-size: 14px; font-weight: bold; fill: #38bdf8; text-anchor: middle; }
       .comp-off { fill: #334155; stroke: #64748b; stroke-width: 2; transition: all 0.3s ease; }
     </style>
   </defs>
   <rect width="1200" height="750" class="bg"/>
-  <text x="40" y="45" class="title">Anlagenschema PHK 180 + PHS 300 — Live-Übersicht</text>
-  <text x="40" y="70" class="subtitle">Vereinfachtes Schema</text>
+  <text x="40" y="45" class="title">Anlagenschema PHK 180 + PHS 300 — Live-Uebersicht (Platzhalter-Vorlage)</text>
+  <text x="40" y="70" class="subtitle">Ersetze diese Datei unter /config/www/phk180/phk180_schema.svg durch deine eigene SVG-Grafik</text>
   <rect x="40" y="100" width="720" height="600" class="panel"/>
   <rect x="800" y="100" width="360" height="600" class="panel"/>
   <path d="M 80 230 L 320 230 L 440 350 L 720 350" class="pipe-air-warm"/>
@@ -34,10 +35,10 @@
   <rect x="880" y="200" width="200" height="420" rx="40" fill="#0f172a" stroke="#475569" stroke-width="3"/>
   <g id="svg_ehz" class="comp-off"><rect x="850" y="300" width="90" height="28" rx="4"/></g>
   <g id="svg_speicherladepumpe" class="comp-off"><circle cx="810" cy="490" r="24"/></g>
-  <g transform="translate(80, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_lufteintritt" class="val-text"></text></g>
-  <g transform="translate(625, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_abluft" class="val-text"></text></g>
-  <g transform="translate(625, 290)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_zuluft" class="val-text"></text></g>
-  <g transform="translate(80, 415)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_verdampfer" class="val-text"></text></g>
-  <g transform="translate(932, 245)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_oben" class="val-text"></text></g>
-  <g transform="translate(932, 465)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_unten" class="val-text"></text></g>
+  <g transform="translate(80, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_lufteintritt" class="val-text">4.8 °C</text></g>
+  <g transform="translate(625, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_abluft" class="val-text">22.2 °C</text></g>
+  <g transform="translate(625, 290)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_zuluft" class="val-text">17.9 °C</text></g>
+  <g transform="translate(80, 415)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_verdampfer" class="val-text">8.0 °C</text></g>
+  <g transform="translate(932, 245)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_oben" class="val-text">50.5 °C</text></g>
+  <g transform="translate(932, 465)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_unten" class="val-text">46.7 °C</text></g>
 </svg>
