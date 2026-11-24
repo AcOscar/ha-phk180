@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style>
+      .bg { fill: #141923; }
+      .panel { fill: #1e2636; stroke: #334155; stroke-width: 2; rx: 12; }
+      .pipe-air-cold { stroke: #38bdf8; stroke-width: 8; fill: none; stroke-linecap: round; }
+      .pipe-air-warm { stroke: #fb923c; stroke-width: 8; fill: none; stroke-linecap: round; }
+      .title { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }
+      .subtitle { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; fill: #94a3b8; }
+      .label { font-family: 'Segoe UI', Roboto, sans-serif; font-size: 13px; fill: #cbd5e1; }
+      .val-box { fill: #0f172a; stroke: #475569; stroke-width: 1.5; rx: 6; }
+      .val-text { font-family: 'Consolas', monospace; font-size: 14px; font-weight: bold; fill: #38bdf8; text-anchor: middle; }
+      .comp-off { fill: #334155; stroke: #64748b; stroke-width: 2; transition: all 0.3s ease; }
+    </style>
+    <bx:grid x="0" y="0" width="25" height="25" divisions="1"/>
+  </defs>
+  <rect width="1200" height="700" class="bg" style=""/>
+  <text x="40" y="45" class="title" style="white-space: pre;">Anlagenschema PHK 180 + PHS 300 — Live-Übersicht</text>
+  <rect x="39.443" y="72.482" width="692.016" height="600" class="panel" style=""/>
+  <rect x="923.553" y="72.482" width="250" height="600" class="panel" style=""/>
+  <path d="M 525 337.969 L 524.702 383.447 L 80 383.447 L 80 450 L 275.291 450 M 550 337.969 L 550 437.271 M 524.702 450 L 350 450" style="fill: none; stroke: rgb(215, 57, 57); stroke-width: 8px;"/>
+  <path d="M 21.492 202.482 L 328.294 202.482 L 424.858 322.482 L 867.106 322.482" class="pipe-air-warm" style=""/>
+  <path d="M 867.106 202.482 L 440 202.482 L 320 322.482 L 21.492 322.482" class="pipe-air-cold"/>
+  <polygon points="380 162.482 450 262.482 380 362.482 310 262.482" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+  <g id="svg_bypass" class="comp-off" transform="matrix(1, 0, 0, 1, 0, -24.517726)">
+    <rect x="345" y="150" width="70" height="28" rx="5"/>
+  </g>
+  <g id="svg_fan_zu" class="comp-off" transform="matrix(1, 0, 0, 1, 0, -24.517726)">
+    <circle cx="200" cy="230" r="28"/>
+  </g>
+  <g id="svg_fan_ab" class="comp-off" transform="matrix(1, 0, 0, 1, 0, -24.517726)">
+    <circle cx="200" cy="350" r="28"/>
+  </g>
+  <rect x="100" y="292.482" width="17.96" height="60" fill="#0f172a" stroke="#38bdf8" stroke-width="2" style=""/>
+  <g id="svg_kompressor" class="comp-off" transform="matrix(1, 0, 0, 1, -67.360926, -17.480353)">
+    <circle cx="383.403" cy="466.866" r="42"/>
+  </g>
+  <g id="svg_mv_anlauf" class="comp-off" transform="matrix(1, 0, 0, 1, 1, -1)" style="">
+    <rect x="274" y="538.688" width="50" height="25" rx="5" style=""/>
+  </g>
+  <g id="svg_mv_fluessig" class="comp-off" transform="matrix(1, 0, 0, 1, 196.337484, -91.743136)">
+    <rect x="230" y="530" width="50" height="25" rx="5"/>
+  </g>
+  <g id="svg_zh_zuluft" class="comp-off" transform="matrix(1, 0, 0, 1, 218.996116, -28.39511)">
+    <rect x="550" y="320" width="45" height="60" rx="4"/>
+  </g>
+  <g id="svg_zh_raum" class="comp-off" transform="matrix(1, 0, 0, 1, 1.458734, 107.260997)"/>
+  <rect x="953.553" y="96.72" width="191.892" height="547.541" rx="40" fill="#0f172a" stroke="#475569" stroke-width="3" style=""/>
+  <g id="svg_ehz" class="comp-off" transform="matrix(1, 0, 0, 1, 68.7033, 83.446658)">
+    <rect x="850" y="300" width="90" height="28" rx="4"/>
+  </g>
+  <polyline style="fill: none; stroke: rgb(255, 0, 0); stroke-width: 8px; stroke-linecap: round;" points="600 600 1000 600 1000 487.791 575 487.646 575 583"/>
+  <g id="svg_speicherladepumpe" class="comp-off" transform="matrix(1, 0, 0, 1, -122.171779, 58.266886)">
+    <circle cx="798.172" cy="540.733" r="24"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 80.000002, 130.482288)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_lufteintritt" class="val-text" style="white-space: pre;">4.8 °C</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 625.000019, 147.482289)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_abluft" class="val-text" style="white-space: pre;">22.2 °C</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 625.000019, 262.482277)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_zuluft" class="val-text" style="white-space: pre;">17.9 °C</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 124.926868, 393.065441)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_verdampfer" class="val-text" style="white-space: pre;">8.0 °C</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 1005.553192, 217.482291)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_speicher_oben" class="val-text" style="white-space: pre;">50.5 °C</text>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 1005.553192, 437.482313)">
+    <rect width="95" height="32" class="val-box"/>
+    <text x="47" y="21" id="svg_t_speicher_unten" class="val-text" style="white-space: pre;">46.7 °C</text>
+  </g>
+  <rect x="100" y="172.482" width="17.96" height="60" fill="#0f172a" stroke-width="2" style="stroke-width: 2; stroke: rgb(251, 146, 60);"/>
+  <g id="svg_kondens_raum" class="comp-off" transform="matrix(1.111108, 0, 0, 1, -211.108664, -151.381078)" style="">
+    <rect x="640" y="454.35" width="90" height="35" rx="5"/>
+  </g>
+  <g id="svg_kondens_wasser" class="comp-off" transform="matrix(1, 0, 0, 1, -115.627338, 28.020142)">
+    <rect x="615.627" y="554.98" width="100" height="35" rx="5" style=""/>
+  </g>
+  <polyline style="fill: none; stroke: rgb(39, 160, 228);" points="564.821 124.024 524.702 150.482 570 174.482"/>
+  <path d="M 550 462.358 L 550 583 M 275.291 450 L 80 450 L 80 600 L 500 600" style="fill: none; stroke: rgb(255, 0, 0); stroke-width: 8px;"/>
+  <g id="svg_mv_4_2_wege" class="comp-off" transform="matrix(1, 0, 0, 1, 121.527401, -118.117786)" style="">
+    <rect x="403.29" y="555.476" width="50" height="25" rx="5"/>
+  </g>
+  <polyline style="fill: none; stroke-width: 8px; stroke: rgb(255, 0, 0);" points="275 550 250 550 250 450"/>
+  <polyline style="fill: none; stroke-width: 8; stroke: rgb(255, 0, 0);" points="325 550 383.227 550 383.176 450"/>
+  <g id="svg_verdampfer" class="comp-off" transform="matrix(1.111108, 0, 0, 1, -589.182024, -23.147435)" style="">
+    <rect x="640" y="454.35" width="90" height="35" rx="5"/>
+  </g>
+</svg>

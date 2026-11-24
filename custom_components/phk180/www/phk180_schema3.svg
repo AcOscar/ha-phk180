@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2148 1347" width="100%" height="100%" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <pattern id="hatch-casing" width="14" height="14" patternTransform="matrix(0.713953, -0.763045, 0.713953, 0.763045, -1757.460868, -1.225223)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="14" y2="0" stroke="#1a1a1a" stroke-width="2"/>
+    </pattern>
+    <pattern id="crosshatch-wt" width="18" height="18" patternTransform="matrix(0.707107, -0.707107, -0.707107, -0.707107, -864.999836, 1599.03768)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="18" y2="0" stroke="#1a1a1a" stroke-width="1.8"/>
+      <line x1="0" y1="0" x2="0" y2="18" stroke="#1a1a1a" stroke-width="1.8"/>
+    </pattern>
+    <mask id="casing-mask">
+      <rect width="2170" height="1452.53" fill="white" x="-1760" y="13.457"/>
+      <rect x="-595.04" y="580.433" width="325" height="647.97" fill="black"/>
+    </mask>
+    <bx:grid x="0" y="0" width="25" height="25" divisions="20"/>
+    <pattern id="hatch-casing-0" href="#hatch-casing" patternTransform="matrix(0.868827, 0.845797, -0.732818, 0.630373, 3425.399757, -447.656356)"/>
+  </defs>
+  <style>
+    text {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 21.5px;
+      fill: #1a1a1a;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
+    .txt-port {
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+    .txt-box {
+      font-size: 20px;
+      text-anchor: middle;
+    }
+    .txt-small {
+      font-size: 18.5px;
+    }
+    .txt-comp {
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+    .txt-wt {
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+    .line-std {
+      stroke: #1a1a1a;
+      stroke-width: 3.2;
+      fill: none;
+      stroke-linecap: butt;
+      stroke-linejoin: miter;
+    }
+    .line-thick {
+      stroke: #1a1a1a;
+      stroke-width: 4.5;
+      fill: none;
+      stroke-linecap: butt;
+      stroke-linejoin: miter;
+    }
+    .line-extra-thick {
+      stroke: #1a1a1a;
+      stroke-width: 8.5;
+      fill: none;
+      stroke-linecap: butt;
+    }
+    .line-thin {
+      stroke: #1a1a1a;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: butt;
+      stroke-linejoin: miter;
+    }
+    .line-ref {
+      stroke: #1a1a1a;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: square;
+      stroke-linejoin: miter;
+    }
+    .symbol-fill {
+      fill: #ffffff;
+      stroke: #1a1a1a;
+      stroke-width: 3.2;
+      stroke-linejoin: miter;
+    }
+    .symbol-thin {
+      fill: #ffffff;
+      stroke: #1a1a1a;
+      stroke-width: 2.2;
+      stroke-linejoin: round;
+    }
+    .arrow-solid {
+      fill: #1a1a1a;
+      stroke: none;
+    }
+  </style>
+  <text x="571.039" y="507.038" class="txt-port" style="white-space: pre; font-size: 24px;">ZUL</text>
+  <text x="514.839" y="507.038" class="txt-port" style="white-space: pre; font-size: 24px;">ABL</text>
+  <text x="364.799" y="507.038" class="txt-port" style="white-space: pre; font-size: 24px;">AUL</text>
+  <text x="295" y="507.038" class="txt-port" style="white-space: pre; font-size: 24px;">FOL</text>
+  <rect x="-615.04" y="558.832" width="365" height="691.168" fill="url(#hatch-casing)" mask="url(#casing-mask)" style="stroke-dasharray: 2px; stroke-linecap: round;" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  <path d="M 290.04 558.832 L 250.04 558.832 L 250.04 1250 L 615.039 1250 L 615 1198.75 M 615.04 1191.25 L 615.04 1133.75 M 360.001 558.832 L 300.001 558.832 M 510 558.832 L 370.001 558.832 M 565 558.832 L 520 558.832 M 615.04 1126.25 L 615 558.832 L 575 558.832" class="line-std" style="stroke-width: 3px;"/>
+  <line x1="267.506" y1="966.541" x2="598.01" y2="966.542" stroke="#1a1a1a" stroke-dasharray="32 20" style="stroke-width: 2px; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, 0.000082, -0.000039)"/>
+  <polygon points="380.001 878.076 500.001 878.076 537.501 823.076 500.001 768.076 380.001 768.076 345.001 823.076" fill="url(#crosshatch-wt)" stroke="#1a1a1a" style="paint-order: stroke; transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 5px;" transform="matrix(-1, 0, 0, -1, -2.501027, 1.924121)"/>
+  <path d="M 365.001 691.038 L 365 792.5 L 515 855 L 515 981.038" class="line-thick" style="stroke-linejoin: round;"/>
+  <path d="M 365 487.5 L 365.001 364.038 L 365.001 225" class="line-thick" style="stroke-linejoin: round;"/>
+  <path d="M 365 510 L 365.001 654.038" class="line-thick" style="stroke-linejoin: round;"/>
+  <path d="M 515 1050 L 515 1084.04 L 570 1084.04 L 570 508.751 M 569.998 250.001 L 569.998 487.5" class="line-thick" style="stroke-linejoin: round; stroke: none;"/>
+  <path d="M 517.25 1050 L 517.25 1081.79 L 567.75 1081.79 L 567.75 508.751 L 572.25 508.751 L 572.25 1084.04 C 572.25 1085.283 571.243 1086.29 570 1086.29 L 515 1086.29 C 513.757 1086.29 512.75 1085.283 512.75 1084.04 L 512.75 1050 Z M 572.248 250.001 L 572.248 487.5 L 567.748 487.5 L 567.748 250.001 Z" style="fill: rgb(26, 26, 26);"/>
+  <path d="M 520 744.038 L 545 744.038 L 545 879.038 L 515 879.038 M 385.001007 744.038025 L 510 744.038025" class="line-std" style="stroke-width: 4.5px; stroke-linejoin: round;"/>
+  <polygon points="510 550 515 525 520 550" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.00001, 0.000002)"/>
+  <polygon points="360 550 365 525 370 550" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000009, 0.000002)"/>
+  <rect x="-374.5" y="607.038" width="20" height="34" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <polyline points="355.001 641.038 365.001 627.038 375.001 641.038" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.000012, 0.000005)"/>
+  <circle cx="-365" cy="674.038" r="20" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <path d="M 364.981 665.719 L 364.981 684.038 M 364.981 665.719 L 350.331 656.559 M 364.981 665.719 L 379.631 656.559" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.000047, 0.000029)"/>
+  <circle cx="1380.21" cy="696.5" r="20" class="symbol-fill" style="stroke-width: 3.2;" transform="matrix(-1, 0, 0, 0.999982, 1745.210379, 47.55084)"/>
+  <line x1="365.003" y1="729.038" x2="365.003" y2="759.038" class="line-std" style=""/>
+  <circle cx="-365" cy="743.9" r="3" fill="#1a1a1a" style="" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  <path d="M 140.001 850.801 L 140.001 568.301 L 289.998 503.301 L 290.001 260.801 M 290.001 192.803 L 290.001 165.801 L 360.001 165.801 L 360.001 850.801 M 140.001 1122.9 L 140.001 873.301 M 360.001 873.301 L 360.001 1125.801" class="line-thick" style="stroke-linejoin: round;" transform="matrix(-1, 0, 0, -1, 655.00104156, 1360.80103779)"/>
+  <polygon points="290.001 514.038 295.001 539.038 300.001 514.038" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.00008, -0.000039)"/>
+  <polyline points="1440 883" class="line-std"/>
+  <text x="730.612" y="595.038" text-anchor="end" style="white-space: pre; font-size: 21.5px;">T-Abluft</text>
+  <polyline points="651 594.538 515 594.538" class="line-thin" style="stroke-width: 1px; stroke-linecap: square;"/>
+  <text x="729.611" y="629.038" text-anchor="end" style="white-space: pre; font-size: 21.5px;">T-Zuluft</text>
+  <line x1="652" y1="629.038" x2="573" y2="629.038" class="line-thin" style="stroke-width: 1px;"/>
+  <text x="120" y="549.502" style="white-space: pre; font-size: 21.5px; text-anchor: end;" transform="matrix(1, 0, 0, 1, 114.909877, -25.682435)">T-Lufteintritt<tspan x="120" dy="1em">​</tspan>Gerät</text>
+  <rect x="-525" y="1106.63" width="20.5" height="107.28" class="symbol-fill" style="" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  <line x1="504.501" y1="1211.63" x2="524.501" y2="1106.63" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, 0.000081, -0.000014)"/>
+  <polyline points="470.001 1089.04 504.48 1089.04 504.48 1039.04" class="line-ref" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000074, 0.000069)"/>
+  <path d="M 505 1230 L 565 1230 M 355.001 1230 L 495 1230 M 300.001 1230 L 345.001 1230 M 290.001 1230 L 270.001 1230 L 270.001 683.75 M 270.001 676.459 L 270.001 618.75 M 270.001 611.25 L 270.001 580 L 595 580 L 595 1230 L 575 1230" class="line-std" style="" transform="matrix(-1, 0, 0, -1, 865.00098756, 1810.000054)"/>
+  <text x="115" y="680.32" text-anchor="start" style="white-space: pre; font-size: 21.5px; stroke-width: 1;">Ventialatoren</text>
+  <text x="132.182" y="752.611" style="white-space: pre; font-size: 21.5px; stroke-width: 1; text-anchor: end;" transform="matrix(1, 0, 0, 1, 112.277622, -3.791382)">Sommer<tspan x="132.1820068359375" dy="1em">​</tspan>Bypass</text>
+  <text x="107.749" y="1168.06" text-anchor="start" style="white-space: pre; font-size: 21.5px; stroke-width: 1;">Kompressor</text>
+  <text x="28.378" y="1043.35" text-anchor="start" style="white-space: pre; font-size: 21.5px; stroke-width: 1;">MV-Anlaufsteuerung</text>
+  <text x="53.631" y="1000.35" text-anchor="start" style="white-space: pre; font-size: 21.5px; stroke-width: 1;">MV-Flüssigleitung</text>
+  <path d="M 1023.75 848.736 L 952.5 848.75 C 944.211 848.298 938.75 840 933.72 835.715 C 928.69 831.43 921.25 833.75 921.17 840.549 C 921.074 848.75 930 850 934.1 845.253 C 938.686 839.944 943.38 833.186 952.5 833.75 L 1024.32 833.75" class="line-std" style="stroke-width: 4px;"/>
+  <rect x="-525" y="981.038" width="20.5" height="68" class="symbol-fill" style="stroke-width: 3.2;" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  <polyline points="505.001 1049.04 525.001 981.039" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.000154, -0.000055)"/>
+  <path d="M 3583.71 -1206.6 L 3709.13 -1206.6 L 3734.2 -1206.6 L 3734.2 -860.96 L 3734.2 -515.39 L 3460.1 -516.98 L 3460.48 -1206.6 L 3583.71 -1206.6 L 3583.71 -1181.5 C 3516.63 -1181.5 3500.32 -1181.5 3500.23 -1161.5 L 3500.34 -590.52 C 3501.09 -567.72 3545.72 -555.45 3598.77 -555.45 C 3648.92 -557.18 3695.6 -567.25 3696.69 -590.52 C 3696.7 -590.54 3697.33 -1163 3696.6 -1161.5 C 3695.79 -1191.6 3621.19 -1181.5 3583.71 -1181.5 L 3583.71 -1206.6 Z" style="paint-order: stroke; fill: url(&quot;#hatch-casing-0&quot;); stroke: rgba(255, 255, 255, 0); stroke-width: 1; transform-origin: 2262.1px 21.72px;" transform="matrix(-1, 0, 0, -1, -0.000301, -0.000002)"/>
+  <path d="M 445 1162.5 L 445.02 989.05 M 375 1162.5 L 445 1162.5" class="line-ref" style="stroke-width: 2.5;"/>
+  <path d="M 375 1110 L 390 1110 L 390 989.05 L 490 989.05 L 490 1035 M 504.49 1130 C 504.48 1130 490 1130 490 1130 L 490 1042.5 M 489.881012 989.049988 L 503.75 988.927979" class="line-thin" style="stroke-width: 2.5px;"/>
+  <rect x="-375" y="1100" width="20.5" height="68" class="symbol-fill" style="stroke-width: 3.2;" transform="matrix(-1, 0, 0, 1, 0, 0)"/>
+  <polyline points="355 1168 375 1100" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.00011, -0.000036)"/>
+  <circle cx="1330.5" cy="1080" r="35" class="symbol-fill" style="" transform="matrix(0, 0.71491, 0.71429, 0, -361.440135, 210.040549)"/>
+  <line x1="409.372" y1="1164.35" x2="418.114" y2="1131.82" class="line-std" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 2.287;" transform="matrix(0, 1.000872, -0.999128, 0, -0.000009, -0.000014)"/>
+  <polyline class="line-std" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 2.287;" points="418.114 1190.6 409.372 1158.07" transform="matrix(0, 1.000872, -0.999128, 0, 0.000005, 0)"/>
+  <polyline points="449.26 1174.26 525.22 1174.26 525.22 1139.78" class="line-ref" style="stroke-width: 2.5; transform-origin: 487.24px 1157.02px;" transform="matrix(0, 1, -1, 0, -0.000023, -0.000024)"/>
+  <polyline points="445 1104.04 464.99 1104.04" class="line-thin" style="stroke-width: 2.5px;"/>
+  <circle cx="-295.17" cy="674.038" r="20" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <path d="M 295.149 665.719 L 295.149 684.038 M 295.149 665.719 L 295.298 649.347 M 295.298 665.597 L 277.798 665.597 M 295.149 665.719 L 312.798 665.597" class="line-thin" style="stroke-width: 1.8; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.297956, 7.212076)"/>
+  <polygon points="565 539.136 570 514.038 575 539.136" class="arrow-solid" style="stroke-width: 1; transform-origin: 570px 526.105px;"/>
+  <polygon points="563.75 902.5 570 922.5 576.25 902.5" class="arrow-solid" style="stroke-width: 1; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000093, 0.000006)"/>
+  <rect x="-525" y="607.038" width="20" height="34" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <polyline points="505.001 641.038 515.001 627.038 525.001 641.038" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.000082, 0.000005)"/>
+  <rect x="-375" y="275" width="20" height="34" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <polyline points="355 309 365 295 375 309" class="line-thin" style="transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1.8;" transform="matrix(-1, 0, 0, -1, 0.000073, 0)"/>
+  <polygon points="464.584 1107.54 464.584 1085.54 477.084 1096.54" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.5; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1.199955, -0.833364, 0, -0.000018, -0.000001)"/>
+  <polygon points="477.084 1122.54 477.084 1100.54 464.584 1111.54" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.5; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1.199955, -0.833364, 0, -0.000007, 0.000013)"/>
+  <line x1="470.831" y1="1104.04" x2="459.999" y2="1104.04" class="line-thin" style="stroke-width: 0;"/>
+  <polygon points="470 1112.79 470 1095.29 453.75 1104.04" style="stroke: rgb(0, 0, 0); paint-order: fill; stroke-width: 2; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, 0.000021, -0.000009)"/>
+  <polygon points="439.584 1042.54 439.584 1020.54 452.084 1031.54" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.292; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1.200082, -0.833276, 0, -0.000017, -0.000055)"/>
+  <polygon points="452.084 1057.54 452.084 1035.54 439.584 1046.54" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.292; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1.200082, -0.833276, 0, 0.000025, -0.000005)"/>
+  <line x1="445.837" y1="1039.04" x2="435.004" y2="1039.04" class="line-thin" style="stroke-width: 2.292;"/>
+  <polygon points="468.752 999.038 468.752 980.705 483.753 989.872" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.292; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000051, -0.000036)"/>
+  <polygon points="468.752 999.038 468.752 980.705 453.751 989.872" fill="#ffffff" stroke="#1a1a1a" style="stroke-width: 2.292; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000051, -0.000036)"/>
+  <line x1="468.751" y1="989.871" x2="468.751" y2="979.038" class="line-thin" style="stroke-width: 2.292;"/>
+  <text x="679.272" y="193.919" style="white-space: pre; font-size: 21.5px;" transform="matrix(1, 0, 0, 1, -125.271938, -15.550726)">Wohn- und <tspan x="679.27197265625" dy="1em">​</tspan>Schlafräume</text>
+  <polygon points="560 209.038 570 254.038 580 209.038" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, 0.000003, -0.000012)"/>
+  <text x="662.039" y="355.422" class="txt-box" style="white-space: pre; font-size: 20px; text-anchor: start;" transform="matrix(1, 0, 0, 1, -48.452207, -4.552063)">Zusatz-<tspan x="662.0390014648438" dy="1em">​</tspan>heizung <tspan x="662.0390014648438" dy="1em">​</tspan>Zuluft</text>
+  <text x="449.837" y="193.919" style="white-space: pre; font-size: 21.5px; text-anchor: end;" transform="matrix(1, 0, 0, 1, 85.16302, -15.550726)">Küche,<tspan x="449.8370056152344" dy="1em">​</tspan>Bad, WC</text>
+  <polygon points="505 254.038 515 209.038 525 254.038" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000002, -0.000018)"/>
+  <polygon points="354.994 255 364.994 210 374.994 255" class="arrow-solid" style="stroke-width: 1; transform-origin: 364.997px 232.5px;" transform="matrix(-1, 0, 0, -1, -0.000062, 0.000002)"/>
+  <text x="933.792" y="469.597" text-anchor="middle" style="white-space: pre; font-size: 21.5px;">Warmwasseraustritt</text>
+  <polyline points="926.402 476.332 926.402 598.151" class="line-std" style="stroke-width: 4.5px;"/>
+  <polygon points="919.413 484.332 926.413 514.332 933.413 484.332" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000023, 0.00002)"/>
+  <polyline points="1189.03 869.45 1189.02 957.522" class="line-std" style="stroke-width: 4.5px; stroke-linejoin: round; transform-origin: 1133.7px 1262.23px;" transform="matrix(0, -1, 1, 0, -0.000015, 0.000065)"/>
+  <polygon points="753.481 1191.91 760.481 1221.91 767.481 1191.91" class="arrow-solid" style="transform-origin: 760.481px 1206.91px;" transform="matrix(0, -1, 1, 0, 0.000015, -0.000057)"/>
+  <text style="white-space: pre; font-size: 21.5px;" x="787.742" y="1275.67" text-anchor="middle">Kaltwassereintritt</text>
+  <text style="white-space: pre; font-size: 21.5px;" x="1122.2" y="851.583">E-Heizstab</text>
+  <text x="1072.2" y="759.284" style="white-space: pre; font-size: 21.5px;">T-E-Heizstab</text>
+  <text x="1072.2" y="784.284" style="white-space: pre; font-size: 21.5px;">Speicher</text>
+  <text x="1072.2" y="913.555" style="white-space: pre; font-size: 21.5px;">T-Wärmepumpe</text>
+  <text x="1072.2" y="938.555" style="white-space: pre; font-size: 21.5px;">Speicher</text>
+  <text x="1072.2" y="1108.66" style="white-space: pre; font-size: 21.5px;">T-Solar</text>
+  <text x="1072.2" y="1133.66" style="white-space: pre; font-size: 21.5px;">Speicher</text>
+  <path d="M 1203 798.078 L 1053 798.078 L 1053 1158.078 L 898 1157.951 L 733 1142.951 L 878 1130.101 L 733 1112.951 C 733 1112.951 881.46 1085.578 878 1085.578 L 733 1057.951 C 733 1057.951 874.54 1047.951 878 1047.951 L 733 1037.951 L 878 1022.951 L 733 1012.951 L 878 997.949 C 881.46 997.949 733 987.949 733 987.949 C 736.47 987.949 878 972.949 878 972.949 L 733 962.949 L 898 952.949 L 1028 953.078 L 1028 733.078 L 1203 733.078" class="line-std" style="stroke-width: 4.5px; stroke-linejoin: round; stroke: none;" transform="matrix(-1, 0, 0, -1, 1728.00016165, 1928.07818332)"/>
+  <path d="M 1203 800.328 L 1055.25 800.328 L 1055.25 1158.078 C 1055.25 1158.675 1055.013 1159.248 1054.59 1159.67 C 1054.168 1160.092 1053.595 1160.329 1052.998 1160.328 L 897.796 1160.192 L 732.796 1145.192 C 731.636 1145.087 730.748 1144.113 730.75 1142.949 C 730.751 1141.784 731.641 1140.813 732.801 1140.71 L 856.131 1129.78 L 732.735 1115.185 C 731.63 1115.054 730.786 1114.135 730.75 1113.023 C 730.714 1111.911 731.497 1110.939 732.591 1110.738 C 732.591 1110.738 769.704 1103.895 806.384 1097.052 C 824.724 1093.631 842.952 1090.21 856.38 1087.644 C 863.093 1086.361 868.598 1085.294 872.319 1084.547 C 874.176 1084.174 875.57 1083.885 876.45 1083.688 C 876.88 1083.592 877.132 1083.531 877.263 1083.493 C 877.285 1083.487 876.99 1083.594 876.768 1083.747 C 876.543 1083.903 875.878 1084.729 875.818 1085.377 C 875.771 1085.884 876.147 1086.851 876.454 1087.162 C 876.658 1087.369 877.076 1087.616 877.245 1087.681 C 877.52 1087.786 877.92 1087.821 877.998 1087.826 C 877.857 1087.826 877.716 1087.813 877.577 1087.786 L 732.577 1060.159 C 731.467 1059.947 730.686 1058.945 730.752 1057.816 C 730.819 1056.688 731.712 1055.784 732.84 1055.704 C 732.84 1055.704 801.664 1050.843 844.554 1047.897 L 732.844 1040.193 C 731.679 1040.113 730.769 1039.154 730.749 1037.987 C 730.729 1036.819 731.606 1035.831 732.767 1035.71 L 851.798 1023.396 L 732.844 1015.192 C 731.679 1015.112 730.769 1014.153 730.749 1012.986 C 730.729 1011.818 731.606 1010.83 732.767 1010.709 L 877.767 995.707 C 877.844 995.699 877.921 995.695 877.999 995.695 C 877.987 995.696 877.848 995.7 877.74 995.715 C 877.662 995.726 877.425 995.777 877.275 995.833 C 877.128 995.887 876.738 996.099 876.534 996.287 C 876.168 996.624 875.717 997.868 875.879 998.5 C 876.058 999.199 876.953 999.916 877.18 1000.012 C 877.28 1000.054 877.442 1000.105 877.498 1000.119 C 877.608 1000.147 877.713 1000.161 877.651 1000.154 C 877.491 1000.137 877.199 1000.111 876.757 1000.075 C 875.866 1000.002 874.458 999.896 872.597 999.759 C 868.871 999.486 863.36 999.095 856.645 998.627 C 843.215 997.69 824.984 996.44 806.643 995.19 C 769.961 992.69 732.847 990.19 732.847 990.19 C 731.637 990.108 730.709 989.082 730.749 987.869 C 730.79 986.656 731.785 985.695 732.998 985.695 C 736.349 985.701 811.221 977.736 852.139 973.417 L 732.843 965.19 C 731.66 965.108 730.743 964.122 730.748 962.936 C 730.753 961.75 731.678 960.771 732.862 960.699 L 898 950.695 L 1025.748 950.822 L 1025.748 733.074 C 1025.748 731.831 1026.755 730.824 1027.998 730.824 L 1202.998 730.824 L 1202.998 735.324 L 1030.248 735.324 L 1030.248 953.074 C 1030.248 953.671 1030.011 954.244 1029.588 954.666 C 1029.166 955.088 1028.593 955.325 1027.996 955.324 L 898.065 955.195 L 767.801 963.09 L 878.153 970.7 C 879.317 970.78 880.226 971.737 880.248 972.903 C 880.269 974.069 879.396 975.059 878.236 975.182 C 878.236 975.182 763.868 987.526 760.28 987.532 C 773.591 988.433 770.266 988.2 806.95 990.7 C 825.292 991.95 843.527 993.2 856.96 994.138 C 863.677 994.607 869.196 994.998 872.927 995.271 C 874.794 995.408 876.221 995.516 877.124 995.59 C 877.58 995.627 877.925 995.658 878.124 995.679 C 878.241 995.691 878.457 995.72 878.604 995.757 C 878.665 995.772 878.83 995.824 878.933 995.867 C 879.163 995.964 880.059 996.682 880.238 997.382 C 880.4 998.014 879.949 999.259 879.583 999.596 C 879.379 999.784 878.988 999.996 878.84 1000.051 C 878.688 1000.107 878.448 1000.159 878.366 1000.171 C 878.241 1000.189 878.066 1000.194 878 1000.195 C 878.077 1000.195 878.155 1000.191 878.232 1000.183 L 759.199 1012.498 L 878.155 1020.702 C 879.32 1020.782 880.23 1021.741 880.25 1022.908 C 880.27 1024.076 879.393 1025.064 878.232 1025.185 L 759.201 1037.499 L 878.155 1045.703 C 879.365 1045.786 880.291 1046.813 880.249 1048.025 C 880.207 1049.237 879.213 1050.198 878 1050.198 C 874.619 1050.195 788.248 1056.311 750.414 1058.975 L 878.421 1083.364 C 878.282 1083.338 878.141 1083.324 878 1083.324 C 878.132 1083.329 878.569 1083.367 878.86 1083.479 C 879.034 1083.546 879.455 1083.795 879.661 1084.003 C 879.97 1084.317 880.347 1085.286 880.3 1085.795 C 880.239 1086.448 879.569 1087.28 879.335 1087.443 C 879.076 1087.623 878.67 1087.769 878.513 1087.815 C 878.286 1087.881 877.9 1087.974 877.433 1088.078 C 876.519 1088.282 875.078 1088.581 873.206 1088.957 C 869.47 1089.707 863.945 1090.778 857.226 1092.062 C 843.791 1094.629 825.553 1098.051 807.21 1101.473 C 770.525 1108.317 762.201 1109.839 748.03 1112.46 L 878.264 1127.864 C 879.409 1127.999 880.266 1128.979 880.249 1130.131 C 880.232 1131.284 879.346 1132.237 878.198 1132.339 L 758.166 1142.976 L 898.103 1155.698 L 1050.75 1155.823 L 1050.75 798.075 C 1050.75 796.832 1051.757 795.825 1053 795.825 L 1203 795.825 Z" style="fill: rgb(26, 26, 26);" transform="matrix(-1, 0, 0, -1, 1728.0001735687292, 1928.0781824612059)"/>
+  <polygon points="628.75 1203.75 653.75 1195 628.75 1186.25" class="arrow-solid" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000008, -0.000002)"/>
+  <path class="arrow-solid" d="M 660 1138.75 L 635 1129.99 L 660 1121.24 L 660 1138.75 Z" style="transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000006, 0.000002)"/>
+  <text x="531.464" y="1274.42" text-anchor="middle" style="white-space: pre; font-size: 21.5px;">Speicherladepumpe</text>
+  <polyline points="1720.5 312.9960021972656" class="line-std" style="stroke-width: 4.5px; stroke-linecap: square;"/>
+  <rect x="-1068" y="-275" width="70" height="70" class="symbol-fill" style="stroke-width: 3.2;" transform="matrix(0, 1, 1, 0, 805.000603, 1396.949624)"/>
+  <path d="M 610.001 388.952 L 585.001 388.952 L 545.001 380.619 L 585.001 372.286 L 545.001 363.952 L 585.001 355.619 L 545.001 347.286 L 585.001 338.952 L 610.001 338.952" class="line-std" style="stroke-width: 3.2; transform-origin: 580.741px 364.18px;"/>
+  <path d="M 790 1212.5 C 790 1218.69 790 1240 790 1250 C 800 1250 1058.75 1250 1065 1250 C 1065 1242.5 1065 690 1065 560 C 992.5 560 954.647 560.119 932.5 560 M 790 765 C 790 730.638 790 592.5 790 560 C 815 560 896.314 559.873 920 560 M 790 1201.25 C 790 1199.38 790 1185.62 790 1183.75 M 790 1173.75 C 790 1125.06 790 1069.91 790 1018.75 M 790 1008.75 C 790 998.788 790 989.297 790 979.812 M 790 970 C 790 905.218 790 839.782 790 775" style="fill: none; stroke-width: 3;" stroke="#000"/>
+  <path d="M 828.75 1183.75 L 828.762 1201.72 C 828.762 1217.56 841.087 1225.48 865.736 1225.48 L 988.986 1225.48 C 1013.63 1225.48 1025.96 1217.56 1025.96 1201.72 L 1025.96 634.58 M 828.762 634.58 L 828.75 765 M 828.75 775 L 828.755 970.416 M 828.755 979.608 L 828.75 1008.75 M 828.75 1018.75 L 828.75 1173.75" class="tank-outline" style="fill: none; stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 3.013;"/>
+  <path d="M 828.762 634.58 C 828.762 612.508 855 599.578 927.5 599.543 C 1000 599.508 1025.96 612.508 1025.96 634.58" class="tank-outline" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3.013;"/>
+  <rect x="1006.33" y="751.564" width="15.301" height="27.541" fill="#fff" stroke="#000" stroke-width="2" style="stroke-width: 1.53;"/>
+  <circle cx="1013.98" r="2.295" fill="#000" cy="765.335" style="stroke-width: 0.765;"/>
+  <rect x="1006.63" y="904.57" width="15.301" height="27.541" fill="#fff" stroke="#000" stroke-width="2" style="stroke-width: 1.53;"/>
+  <circle cx="1014.33" cy="918.34" r="2.295" fill="#000" style="stroke-width: 0.765;"/>
+  <rect x="1006.63" y="1100.42" width="15.301" height="27.541" fill="#fff" stroke="#000" stroke-width="2" style="stroke-width: 1.53;"/>
+  <circle cx="1014.33" cy="1114.19" r="2.295" fill="#000" style="stroke-width: 0.765;"/>
+  <rect x="1024.32" y="821.877" width="73.904" height="38.321" fill="#fff" stroke="#000" style="stroke-width: 3;"/>
+  <rect x="1032.72" y="1114.19" width="4.59" height="70.382" fill="#fff" stroke="#000" stroke-width="2" style="stroke-width: 1.53;"/>
+  <line x1="1024.35" y1="1120.3" x2="1032.76" y2="1120.31" stroke="#000" stroke-width="1.5" style="stroke-width: 1.148; transform-origin: 1035.06px 1120.3px;"/>
+  <line x1="1024.34" y1="1178.44" x2="1032.76" y2="1178.45" stroke="#000" stroke-width="1.5" style="stroke-width: 1.148; transform-origin: 1035.06px 1178.46px;"/>
+  <path d="M 995.933 1013.83 L 945.932 1013.83 L 780.931 1028.83 L 925.932 1043.83 C 925.932 1043.83 784.371 1053.83 780.931 1053.83 C 780.931 1053.83 929.372 1063.83 925.932 1063.83 L 780.931 1073.83 L 925.932 1083.83 L 780.931 1093.84 L 925.932 1103.84 C 922.412 1103.84 780.931 1113.85 780.931 1113.85 L 925.932 1128.85 C 929.372 1128.85 780.931 1133.84 780.931 1133.84 L 925.932 1148.84 L 780.931 1158.84 L 945.932 1178.84 L 995.933 1178.84" stroke="#000" style="stroke-width: 4.5; fill-rule: nonzero; fill: none; stroke-linejoin: round; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(-1, 0, 0, -1, -0.000036, 0.000079)"/>
+  <text x="1457.8" y="1189.29" style="white-space: pre; stroke-width: 1; font-size: 21.5px; text-anchor: end;" transform="matrix(1, 0, 0, 1, -1241.615149, -87.401995)">Umschaltventil<tspan x="1457.800048828125" dy="1em">​</tspan>TW/Luft</text>
+  <circle cx="-562.25" cy="1129.75" r="19" class="symbol-fill" transform="matrix(-1, 0, 0, 1, 0, 0)" style="stroke-width: 3.2;"/>
+  <path d="M 2996.106 2591.4 L 3012.012 2618.976 L 2980.2 2618.976 L 2996.106 2591.4 Z" bx:shape="triangle 2980.2 2591.4 31.812 27.576 0.5 0 1@8a086c35" style="stroke: rgb(0, 0, 0); transform-box: fill-box; transform-origin: 50% 50%; stroke-width: 1;" transform="matrix(0, -1, -1, 0, -2429.202542, -1475.662963)"/>
+  <rect x="-1138" y="-345" width="70" height="70" class="symbol-fill" style="stroke-width: 3.2; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, -1, -1, 0, 1463.000207, 675.000161)"/>
+  <path d="M 405 390.002 L 380 390.002 L 340 381.669 L 380 373.336 L 340 365.002 L 380 356.669 L 340 348.336 L 380 340.002 L 405 340.002" class="line-std" style="stroke-width: 3.2; transform-origin: 375.74px 365.23px;"/>
+  <polygon points="510 937.5 515 912.5 520 937.5" class="arrow-solid" style="stroke-width: 1; transform-origin: 515px 925px;" transform="matrix(-1, 0, 0, -1, 0.000063, 0.000034)"/>
+  <polygon points="540 795 545 770 550 795" class="arrow-solid" style="stroke-width: 1; transform-origin: 545px 782.5px;" transform="matrix(-1, 0, 0, -1, 0.000023, -0.000013)"/>
+  <polygon points="360 937.5 365 912.5 370 937.5" class="arrow-solid" style="stroke-width: 1; transform-origin: 365px 925px;" transform="matrix(-1, 0, 0, -1, 0.000004, 0.000002)"/>
+  <polygon points="285 209.038 295 254.038 305 209.038" class="arrow-solid" style="stroke-width: 1; transform-origin: 295px 231.538px;" transform="matrix(-1, 0, 0, -1, 0.000007, 0.000006)"/>
+  <text x="295.634" y="194.638" style="white-space: pre; font-size: 21.5px;">Aussen</text>
+  <text x="662.039" y="355.422" class="txt-box" style="white-space: pre; font-size: 20px; text-anchor: start;" transform="matrix(1, 0, 0, 1, -252.038948, 7.798736)">Vorheiz-<tspan x="662.0390014648438" dy="1em">​</tspan>register</text>
+  <polygon points="290 922.5 295 897.5 300 922.5" class="arrow-solid" style="stroke-width: 1; transform-origin: 295px 910px;"/>
+</svg>
