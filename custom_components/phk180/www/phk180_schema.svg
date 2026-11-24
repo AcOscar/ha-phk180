@@ -34,10 +34,10 @@
   <rect x="880" y="200" width="200" height="420" rx="40" fill="#0f172a" stroke="#475569" stroke-width="3"/>
   <g id="svg_ehz" class="comp-off"><rect x="850" y="300" width="90" height="28" rx="4"/></g>
   <g id="svg_speicherladepumpe" class="comp-off"><circle cx="810" cy="490" r="24"/></g>
-  <g transform="translate(80, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_lufteintritt" class="val-text">4.8 °C</text></g>
-  <g transform="translate(625, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_abluft" class="val-text">22.2 °C</text></g>
-  <g transform="translate(625, 290)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_zuluft" class="val-text">17.9 °C</text></g>
-  <g transform="translate(80, 415)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_verdampfer" class="val-text">8.0 °C</text></g>
-  <g transform="translate(932, 245)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_oben" class="val-text">50.5 °C</text></g>
-  <g transform="translate(932, 465)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_unten" class="val-text">46.7 °C</text></g>
+  <g transform="translate(80, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_lufteintritt" class="val-text"></text></g>
+  <g transform="translate(625, 175)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_abluft" class="val-text"></text></g>
+  <g transform="translate(625, 290)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_zuluft" class="val-text"></text></g>
+  <g transform="translate(80, 415)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_verdampfer" class="val-text"></text></g>
+  <g transform="translate(932, 245)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_oben" class="val-text"></text></g>
+  <g transform="translate(932, 465)"><rect width="95" height="32" class="val-box"/><text x="47" y="21" id="svg_t_speicher_unten" class="val-text"></text></g>
 </svg>
