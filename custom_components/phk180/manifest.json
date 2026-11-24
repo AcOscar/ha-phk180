@@ -1,6 +1,10 @@
 {
   "domain": "phk180",
   "name": "PHK 180 Local Web Control (Unofficial)",
+  "after_dependencies": [
+    "frontend",
+    "lovelace"
+  ],
   "codeowners": [
     "@AcOscar"
   ],

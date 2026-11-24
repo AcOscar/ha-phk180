@@ -12,10 +12,14 @@ Die Nutzung erfolgt vollständig auf eigene Gefahr.
 """
 from __future__ import annotations
 
+import logging
 from pathlib import Path
+from typing import Any
 import voluptuous as vol
 
+from homeassistant.components import frontend
 from homeassistant.components.http import StaticPathConfig
+from homeassistant.components.lovelace import dashboard as lovelace_dashboard
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant, ServiceCall
@@ -23,7 +27,12 @@ import homeassistant.helpers.config_validation as cv
 
 from .api import Phk180Api
 from .const import (
+    CONF_INSTALL_DASHBOARD,
+    DASHBOARD_ICON,
+    DASHBOARD_TITLE,
+    DASHBOARD_URL_PATH,
     DEFAULT_HOST,
+    DEFAULT_INSTALL_DASHBOARD,
     DEFAULT_PASSWORD,
     DEFAULT_USERNAME,
     DOMAIN,
@@ -32,7 +41,26 @@ from .const import (
 )
 from .coordinator import Phk180Coordinator
 
+_LOGGER = logging.getLogger(__name__)
 _STATIC_PATH_REGISTERED = "_static_path_registered"
+_DASHBOARD_REGISTERED = "_dashboard_registered"
+
+
+def _get_lovelace_dashboards(hass: HomeAssistant) -> dict[str, Any] | None:
+    """Return Home Assistant's Lovelace dashboards mapping across HA versions."""
+    try:
+        from homeassistant.components.lovelace.const import LOVELACE_DATA
+    except ImportError:
+        LOVELACE_DATA = "lovelace"
+
+    lovelace_data = hass.data.get(LOVELACE_DATA) or hass.data.get("lovelace")
+    if lovelace_data is None:
+        return None
+    if hasattr(lovelace_data, "dashboards"):
+        return lovelace_data.dashboards
+    if isinstance(lovelace_data, dict):
+        return lovelace_data.get("dashboards")
+    return None
 
 
 async def _async_register_static_assets(hass: HomeAssistant) -> None:
@@ -54,9 +82,71 @@ async def _async_register_static_assets(hass: HomeAssistant) -> None:
     domain_data[_STATIC_PATH_REGISTERED] = True
 
 
+def _register_dashboard(hass: HomeAssistant) -> None:
+    """Register the bundled PHK 180 YAML dashboard in the Home Assistant sidebar."""
+    dashboards = _get_lovelace_dashboards(hass)
+    if dashboards is None:
+        _LOGGER.warning(
+            "Lovelace ist nicht geladen – PHK 180 Dashboard konnte nicht registriert werden."
+        )
+        return
+
+    dashboard_file = Path(__file__).parent / "dashboards" / "phk180_dashboard.yaml"
+    dashboard_config = {
+        "mode": "yaml",
+        "filename": str(dashboard_file),
+        "title": DASHBOARD_TITLE,
+        "icon": DASHBOARD_ICON,
+        "show_in_sidebar": True,
+        "require_admin": False,
+    }
+    dashboards[DASHBOARD_URL_PATH] = lovelace_dashboard.LovelaceYAML(
+        hass, DASHBOARD_URL_PATH, dashboard_config
+    )
+    frontend.async_register_built_in_panel(
+        hass,
+        "lovelace",
+        frontend_url_path=DASHBOARD_URL_PATH,
+        sidebar_title=DASHBOARD_TITLE,
+        sidebar_icon=DASHBOARD_ICON,
+        require_admin=False,
+        show_in_sidebar=True,
+        config={"mode": "yaml"},
+        update=True,
+    )
+    hass.data.setdefault(DOMAIN, {})[_DASHBOARD_REGISTERED] = True
+
+
+def _unregister_dashboard(hass: HomeAssistant) -> None:
+    """Remove the bundled PHK 180 dashboard from the sidebar if registered."""
+    domain_data = hass.data.get(DOMAIN, {})
+    if not domain_data.get(_DASHBOARD_REGISTERED):
+        return
+
+    dashboards = _get_lovelace_dashboards(hass)
+    if isinstance(dashboards, dict):
+        dashboards.pop(DASHBOARD_URL_PATH, None)
+    frontend.async_remove_panel(hass, DASHBOARD_URL_PATH)
+    domain_data[_DASHBOARD_REGISTERED] = False
+
+
+async def _async_update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Reload config entry when options change."""
+    await hass.config_entries.async_reload(entry.entry_id)
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up PHK 180 Local Web Control from a config entry."""
     await _async_register_static_assets(hass)
+
+    install_dashboard = entry.options.get(
+        CONF_INSTALL_DASHBOARD,
+        entry.data.get(CONF_INSTALL_DASHBOARD, DEFAULT_INSTALL_DASHBOARD),
+    )
+    if install_dashboard:
+        _register_dashboard(hass)
+    else:
+        _unregister_dashboard(hass)
 
     host = entry.data.get(CONF_HOST, DEFAULT_HOST)
     username = entry.data.get(CONF_USERNAME, DEFAULT_USERNAME)
@@ -68,6 +158,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     await coordinator.async_config_entry_first_refresh()
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
+
+    entry.async_on_unload(entry.add_update_listener(_async_update_listener))
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
@@ -119,5 +211,11 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     if unload_ok:
-        hass.data[DOMAIN].pop(entry.entry_id)
+        domain_data = hass.data[DOMAIN]
+        domain_data.pop(entry.entry_id, None)
+        remaining_entries = [
+            k for k in domain_data if not k.startswith("_")
+        ]
+        if not remaining_entries:
+            _unregister_dashboard(hass)
     return unload_ok

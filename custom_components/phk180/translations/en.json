@@ -8,7 +8,8 @@
           "host": "Host / IP Address",
           "username": "Username (default: admin)",
           "password": "Password (optional)",
-          "scan_interval": "Scan Interval (seconds)"
+          "scan_interval": "Scan Interval (seconds)",
+          "install_dashboard": "Show bundled PHK 180 dashboard in sidebar"
         }
       }
     },
@@ -17,6 +18,18 @@
     },
     "abort": {
       "already_configured": "Device is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PHK 180 Options",
+        "description": "Adjust the polling interval or toggle the bundled PHK 180 dashboard in the sidebar.",
+        "data": {
+          "scan_interval": "Scan Interval (seconds)",
+          "install_dashboard": "Show bundled PHK 180 dashboard in sidebar"
+        }
+      }
     }
   }
 }

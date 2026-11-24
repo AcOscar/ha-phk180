@@ -13,6 +13,11 @@ Die Nutzung erfolgt vollständig auf eigene Gefahr.
 
 DOMAIN = "phk180"
 STATIC_URL_PATH = "/phk180"
+DASHBOARD_URL_PATH = "phk180-dashboard"
+DASHBOARD_TITLE = "PHK 180"
+DASHBOARD_ICON = "mdi:hvac"
+CONF_INSTALL_DASHBOARD = "install_dashboard"
+DEFAULT_INSTALL_DASHBOARD = True
 DEFAULT_HOST = "aerexphk180"
 DEFAULT_USERNAME = "admin"
 DEFAULT_PASSWORD = ""

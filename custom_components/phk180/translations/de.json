@@ -8,7 +8,8 @@
           "host": "Host / IP-Adresse der Anlage",
           "username": "Benutzername (Standard: admin)",
           "password": "Passwort (optional, falls in der Weboberfläche vergeben)",
-          "scan_interval": "Abfrageintervall (Sekunden)"
+          "scan_interval": "Abfrageintervall (Sekunden)",
+          "install_dashboard": "PHK 180 Dashboard in der Seitenleiste einbinden"
         }
       }
     },
@@ -17,6 +18,18 @@
     },
     "abort": {
       "already_configured": "Dieses Gerät ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PHK 180 Optionen",
+        "description": "Passe das Abfrageintervall oder die Einbindung des mitgelieferten PHK 180 Dashboards an.",
+        "data": {
+          "scan_interval": "Abfrageintervall (Sekunden)",
+          "install_dashboard": "PHK 180 Dashboard in der Seitenleiste einbinden"
+        }
+      }
     }
   }
 }
