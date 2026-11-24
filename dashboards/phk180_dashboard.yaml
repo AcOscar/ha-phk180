@@ -185,7 +185,7 @@ views:
     panel: true
     cards:
       - type: picture-elements
-        image: /local/phk180/phk180_schema.svg
+        image: /phk180/phk180_schema.svg
         elements:
           - type: state-label
             entity: sensor.phk180_t_lufteintritt

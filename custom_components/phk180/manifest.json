@@ -5,6 +5,9 @@
     "@AcOscar"
   ],
   "config_flow": true,
+  "dependencies": [
+    "http"
+  ],
   "documentation": "https://github.com/AcOscar/ha-phk180",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/AcOscar/ha-phk180/issues",

@@ -37,10 +37,9 @@ Die Anlage muss an das LAN angeschlossen sein und das Webinterface muss aktivier
 5. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
 
 ### Variante B: Manuelle Installation
-1. Kopiere den Ordner `custom_components/phk180` in dein Home Assistant Verzeichnis unter `/config/custom_components/phk180`.
-2. *(Optional für das Live-Schema)* Kopiere den Ordner `www/phk180` nach `/config/www/phk180`.
-3. Starte Home Assistant neu und füge die Integration unter **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** hinzu.
-4. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
+1. Kopiere den Ordner `custom_components/phk180` in dein Home Assistant Verzeichnis unter `/config/custom_components/phk180`. *(Die Grafiken für das Live-Schema sind bereits enthalten und werden automatisch unter `/phk180/` bereitgestellt.)*
+2. Starte Home Assistant neu und füge die Integration unter **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** hinzu.
+3. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
 
 
 ## Lizenz

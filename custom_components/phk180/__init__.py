@@ -12,8 +12,10 @@ Die Nutzung erfolgt vollständig auf eigene Gefahr.
 """
 from __future__ import annotations
 
+from pathlib import Path
 import voluptuous as vol
 
+from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant, ServiceCall
@@ -26,12 +28,36 @@ from .const import (
     DEFAULT_USERNAME,
     DOMAIN,
     PLATFORMS,
+    STATIC_URL_PATH,
 )
 from .coordinator import Phk180Coordinator
+
+_STATIC_PATH_REGISTERED = "_static_path_registered"
+
+
+async def _async_register_static_assets(hass: HomeAssistant) -> None:
+    """Register bundled graphics under /phk180 once per Home Assistant instance."""
+    domain_data = hass.data.setdefault(DOMAIN, {})
+    if domain_data.get(_STATIC_PATH_REGISTERED) or hass.http is None:
+        return
+
+    static_dir = Path(__file__).parent / "www"
+    await hass.http.async_register_static_paths(
+        [
+            StaticPathConfig(
+                url_path=STATIC_URL_PATH,
+                path=str(static_dir),
+                cache_headers=True,
+            )
+        ]
+    )
+    domain_data[_STATIC_PATH_REGISTERED] = True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up PHK 180 Local Web Control from a config entry."""
+    await _async_register_static_assets(hass)
+
     host = entry.data.get(CONF_HOST, DEFAULT_HOST)
     username = entry.data.get(CONF_USERNAME, DEFAULT_USERNAME)
     password = entry.data.get(CONF_PASSWORD, DEFAULT_PASSWORD)
