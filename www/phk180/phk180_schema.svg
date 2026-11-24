@@ -14,8 +14,8 @@
     </style>
   </defs>
   <rect width="1200" height="750" class="bg"/>
-  <text x="40" y="45" class="title">Anlagenschema PHK 180 + PHS 300 — Live-Uebersicht (Platzhalter-Vorlage)</text>
-  <text x="40" y="70" class="subtitle">Ersetze diese Datei unter /config/www/phk180/phk180_schema.svg durch deine eigene SVG-Grafik</text>
+  <text x="40" y="45" class="title">Anlagenschema PHK 180 + PHS 300 — Live-Übersicht</text>
+  <text x="40" y="70" class="subtitle">Simple Scheme</text>
   <rect x="40" y="100" width="720" height="600" class="panel"/>
   <rect x="800" y="100" width="360" height="600" class="panel"/>
   <path d="M 80 230 L 320 230 L 440 350 L 720 350" class="pipe-air-warm"/>
