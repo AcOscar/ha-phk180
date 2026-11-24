@@ -42,6 +42,19 @@ Die Anlage muss an das LAN angeschlossen sein und das Webinterface muss aktivier
 2. Starte Home Assistant neu und füge die Integration unter **Einstellungen -> Geräte & Dienste -> Integration hinzufügen** hinzu.
 3. Gib den Hostname der Anlage oder dessen IP Adresse an. Der Standardname (Werkseinstelleung) ist "aerexphk180".
 
+---
+## Verwendung
+
+Ziel für diese Integration war es eine Möglichkeit zu schaffen die Anlage besser überwachen zu können. Ich hatte bereits mehrfach Störungen die mich viel Geld gekostet haben, die man durch sorgfältige Beobachtung hätte vermeiden können. Auch ein wenig Komfort war wünschenswert. 
+
+Folgende Anwendungsfälle sollen abgedeckt werden:
+- Umstellung zwischen Sommer- und Winterzeit.
+- Überschussladen des Warmwasserspeicher
+- Bedarfsgerechte Lüftungsteuerung mittels externer Sensoren (Anwesenheit)
+- komplexe Zeitprogramme
+- Langzeitüberwachung zur frühzeitigen Störungserkennung
+
+--- 
 
 ## Lizenz
 Veröffentlicht unter der [MIT License](LICENSE).
